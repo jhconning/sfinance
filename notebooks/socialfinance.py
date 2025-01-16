@@ -105,7 +105,8 @@ class Bank(object):
         """
         params = sorted(vars(self).items())
         params_to_print = [f"{key} = {value}" for key, value in params if np.isscalar(value)]
-        print(', '.join(params_to_print))
+        for i in range(0, len(params_to_print), 6):
+            print(', '.join(params_to_print[i:i+6]))
 
     
 
@@ -144,8 +145,8 @@ class Bank(object):
         ax.text(1, (Amc+Am0)/2, 'Interme-\n diated', rotation='vertical', verticalalignment='center')
         ax.text(1, (Amx+Amc)/2, 'Equity-only', rotation='vertical', verticalalignment='center')
         ax.text(1, Amx/2, 'No Loan', rotation='vertical', verticalalignment='center')
-        ax.text(mx*1.1, self.AMe(mx)*0.9, r'$AM_e(m)$')
-        ax.text(mx*1.1, self.AM(mx), r'$AM(m)$')
+        ax.text(mx*1.1, self.AMe(mx)*0.9, r'$A^e(m)$')
+        ax.text(mx*1.1, self.AM(mx), r'$A(m)$')
         
         ax.spines['right'].set_visible(False)
         ax.spines['top'].set_visible(False)
