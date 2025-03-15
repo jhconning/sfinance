@@ -31,15 +31,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18.x
+
+      - name: Install MyST Markdown
+        run: npm install -g mystmd
+      - name: Build HTML Assets
+        run: myst build --html
       - name: Install Marp CLI
         run: npm install -g @marp-team/marp-cli
       - name: Generate Marp PDF
         run: marp slides.md -o _build/html/slides.pdf --allow-local-files --pdf
       
-      - name: Install MyST Markdown
-        run: npm install -g mystmd
-      - name: Build HTML Assets
-        run: myst build --html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
