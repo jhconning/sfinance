@@ -3,6 +3,10 @@ on:
   push:
     # Runs on pushes targeting the default branch
     branches: [main]
+env:
+  # `BASE_URL` determines the website is served from, including CSS & JS assets
+  # You may need to change this to `BASE_URL: ''`
+  BASE_URL: /${{ github.event.repository.name }}
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -37,8 +41,8 @@ jobs:
         run: npm install -g mystmd
       - name: Build HTML Assets
         run: myst build --html
-      - name: List Artifact Contents
-        run: ls -R _build/html
+ #     - name: List Artifact Contents
+ #       run: ls -R _build/html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
