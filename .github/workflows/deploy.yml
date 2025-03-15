@@ -34,7 +34,9 @@ jobs:
       - name: Install Marp CLI
         run: npm install -g @marp-team/marp-cli
       - name: Generate Marp PDF
-        run: marp slides.md -o _build/html/slides.pdf --allow-local-files --pdf
+        run: marp slides.md -o _build/html/slides/slides.pdf --allow-local-files --pdf
+      - name: Copy Image files
+        run: cp -r notebooks/figs _build/html/slides/
       - name: Install MyST Markdown
         run: npm install -g mystmd
       - name: Build HTML Assets
