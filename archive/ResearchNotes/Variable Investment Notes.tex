@@ -1,0 +1,129 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Wednesday, July 16, 2008 10:25:47}
+%TCIDATA{LastRevised=Wednesday, July 16, 2008 11:18:55}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+\subsection{Variable Investment case}
+
+$pXI\geq \frac{p}{\Delta }B(m)I-A+\gamma (I-I_{m})+\frac{p}{\Delta }mI$
+
+$\beta I_{m}=\frac{p}{\Delta }mI-mI-F$
+
+$A^{\prime }(X,m)=\frac{p}{\Delta }B(m)I-\left[ pXI-\gamma I\right] -\frac{%
+\gamma }{\beta }\left[ \frac{p}{\Delta }mI-mI-F\right] +\frac{p}{\Delta }mI$
+
+if $\beta =\gamma $
+
+$A(X,m,I)=\frac{p}{\Delta }B(m)I-\left[ pXI-\gamma I\right] +mI+F$
+
+When $\beta >\gamma $
+
+$A^{\prime }(X,m)=\frac{p}{\Delta }B(m)I-\left[ pXI-\gamma I\right] -\frac{%
+\gamma }{\beta }\left[ \frac{p}{\Delta }mI-mI-F\right] +\frac{p}{\Delta }mI$
+
+$A^{\prime }(X,m)=\left[ A(X,m,I)-mI-F\right] -\frac{\gamma }{\beta }\left[ 
+\frac{p}{\Delta }mI-mI-F\right] +\frac{p}{\Delta }mI$
+
+$A^{\prime }(X,m)=A(X,m,I)+\frac{\beta -\gamma }{\beta }\left[ \frac{p}{%
+\Delta }mI-mI-F\right] $
+
+$A^{\prime }(X,m)=A(X,m,I)+(\beta -\gamma )I_{m}$
+
+If $m=0$
+
+$A(X,0,I)=\frac{p}{\Delta }B_{0}I-\left[ pXI-\gamma I\right] +F$
+
+max loan size for borrower with assets $A$ would be:
+
+$A=\frac{p}{\Delta }B_{0}I-\left[ pXI-\gamma I\right] +F$
+
+$I=\frac{A-F}{\left[ \frac{p}{\Delta }B_{0}-\left[ pX-\gamma \right] \right] 
+}$
+
+Suppose allow monitoring at level \ $m_{1}$
+
+($\beta =\gamma $ case)
+
+$A(X,m_{1},I)=\frac{p}{\Delta }B(m_{1})I-\left[ pXI-\gamma I\right] +m_{1}I+F
+$
+
+$A=\frac{p}{\Delta }B(m_{1})I-\left[ pXI-\gamma I\right] +m_{1}I+F$
+
+$I=\frac{A-F}{\left[ \frac{p}{\Delta }B(m_{1})-\left[ pX-\gamma \right]
++m_{1}\right] }$\newline
+\newline
+by assumption $\frac{p}{\Delta }B^{\prime }(m_{1})+1<0$ so monitoring lowers
+collateral req and increases loan size.
+
+Note that in the above it follows that
+
+$I_{m}=\frac{1}{\beta }\left[ \frac{p}{\Delta }mI-mI-F\right] $
+
+$=-\frac{F}{\beta }+\frac{q}{\Delta }mI$
+
+$=-\frac{F}{\beta }+\frac{q}{\Delta }m_{1}\frac{\left[ A-F\right] }{\left[ 
+\frac{p}{\Delta }B(m_{1})-\left[ pX-\gamma \right] +m_{1}\right] }$ \ which
+is increasing in $m$
+
+But does borrower want higher monitoring?
+
+Borrower earns:
+
+$pXI-\gamma (I-I_{m})-\beta I_{m}-F$
+
+$=pXI-\gamma I-(\beta -\gamma )I_{m}-F$
+
+$=\left[ pX-\gamma \right] I-\frac{(\beta -\gamma )}{\beta }\left[ \frac{p}{%
+\Delta }mI-mI-F\right] $
+
+$=\left[ \left[ pX-\gamma \right] -\frac{(\beta -\gamma )}{\beta }\frac{q}{%
+\Delta }m]\right] I+\frac{(\beta -\gamma )}{\beta }F$
+
+$\left[ \left[ pX-\gamma \right] -\frac{(\beta -\gamma )}{\beta }\frac{q}{%
+\Delta }m]\right] \frac{\left[ A-F\right] }{\left[ \frac{p}{\Delta }B(m_{1})-%
+\left[ pX-\gamma \right] +m_{1}\right] }+\frac{(\beta -\gamma )}{\beta }F$
+
+in $\beta =\gamma $
+
+$\left[ \left[ pX-\gamma \right] ]\right] \frac{\left[ A-F\right] }{\left[ 
+\frac{p}{\Delta }B(m_{1})-\left[ pX-\gamma \right] +m_{1}\right] }$
+
+which is decreasing in $m,$ so borrower does not want monitoring, unless
+necessary...
+
+\end{document}

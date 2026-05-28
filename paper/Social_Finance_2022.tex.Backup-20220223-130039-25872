@@ -1,0 +1,1899 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdfborder={0 0 0},
+  breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-2}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\date{}
+
+\begin{document}
+
+\textbf{Social Finance}
+
+January 2017
+
+\emph{PRELIMINARY DRAFT}\footnote{This is a very preliminary draft. We
+  would like to thank Leonardo Becchetti, Robert Lensink, and Ingmar
+  Nyman for useful comments and discussions as well as to seminar
+  participants at , , Università di Roma Tor Vergata, and . We
+  gratefully acknowledge research funding from the Ford Foundation in
+  support of this project.}
+
+\textbf{Jonathan Conning\\
+}Hunter College and The Graduate Center\\
+City University of New York
+
+\textbf{Jonathan M}o\textbf{rduch\\
+}New York University
+
+\textbf{Abstract:} We propose a framework for understanding how social
+investors' who seek to maximize a combination of private and social
+returns from investments in a portfolio of new and established
+microfinance institutions. The model takes into account the endogeneity
+of loan contract terms as well as the capital structure of the financial
+institutions that may emerge to serve target groups of borrowers
+differentiated primarily by their levels of initial average net worth,
+and how social investments might transform those patterns. We build upon
+one of the workhorse models of modern corporate finance (Tirole, 2007)
+which features limited liability, multiple layers of moral hazard and
+costly monitoring to explain patterns of financial intermediation, and
+in our framework, the role and modes of social investment. We pinpoint
+the role of the subsidies and guarantees implicit in social investors'
+equity and quasi-equity investments and the role they play in attracting
+private capital investors and sustaining productivity-enhancing
+financial intermediation that might otherwise not have taken place.
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+The working modes of philanthropy and business are blurring in two ways.
+First, philanthropists are increasingly using methods borrowed from
+for-profit investors. The strategies of venture capitalists are being
+adapted by ``venture philanthropists'' seeking to fund socially-minded
+institutions with promising ideas at early stages of development. They
+hope that the ideas will form the basis of sustainable institutions
+capable of serving populations at wide scale. As a recent survey of
+philanthropy put it:
+
+\begin{quote}
+The modern philanthropist dislikes the term charity, preferring to speak
+about his social investments. His language is entrepreneurial, sprinkled
+with references to metrics, scalability, leverage, and venture
+philanthropy (Weinsberg, 2006).
+\end{quote}
+
+The changes are expanding to foundations with the increasing favor of
+program-related investments over grants (PRIs include loans, equity
+shares, recoverable grants, linked deposits, and guarantees); parallel
+changes are afoot within government agencies (Marble, 1989).
+
+Oikocredit, for example, a Dutch social investment organization, has
+since 1978 been making long-term loans to ``enterprises and institutions
+for the empowerment of poor people in developing countries .'' Their
+first ``social investment'' in microfinance, for example, was a
+\$150,000 loan for 5 years at 9\% interest to Alternativa, a
+non-governmental organization providing microcredit to street vendors
+and small-scale entrepreneurs in Lima, Peru. Between 1994 and the end of
+2004, Oikocredit made a cumulative total of 285 loans or investment
+agreements to 161 institutions in 41 countries, totaling \$88 million.
+Their net profit, returned to shareholders as a dividend, was 2\%. The
+dividend allowed investors a modest return on capital, but they earned
+substantially less than alternative investments. Their relative loss is
+their implicit charitable contribution (Heinen, 2005).
+
+The second turn is that many socially-minded institutions receiving
+funding also increasingly look like businesses. Museums have raised
+entry prices and run ambitious shops with mail-order catalogues.
+Non-profit schools are hiking tuitions. Environmental groups buy and
+sell land. Community development programs work with banks to facilitate
+mortgages in low-income neighborhoods. Indeed, some of these
+institutions are forming commercially viable entities and competing in
+the marketplace on the strength of their balance sheets alone.
+Opportunity International, a US-based network of microfinance
+institutions, owns a for-profit insurance company. BRAC, the largest NGO
+in Bangladesh, owns a for-profit bank. Chicago's Shorebank, the largest
+community development bank in the United States, is a holding company
+composed of non-profit and for-profit entities. BASIX has adapted the
+Shorebank model to South India.
+
+The microfinance sector is home to some of the best-known examples of
+the new hybrids, and is in many ways the leading edge. Muhammad Yunus,
+the 2006 Nobel Peace Prize winner and founder of the Grameen Bank, a
+financial institution for the poor of Bangladesh, created a ``social
+business'' funded by social investors.
+
+We tackle the logic and tensions inherent in social finance---the
+support, with philanthropic objectives, of nonprofits, social businesses
+like the Grameen Bank, and profit-maximizing businesses serving the
+poor. The principles behind the new world of philanthropy and social
+action have not been well-explored by economists. We develop a theory of
+``social finance'' to parallel the modern theory of corporate finance.
+
+Most generally, we assess the justification for the subsidy inherent in
+social investment. We go further to describe a framework that describes
+how subsidy can be deployed for optimal impact. A focus is on using
+funds to build institutions that can achieve scale and attract
+additional revenue sources and investments. Leverage is critical, and we
+describe two important kinds of leverage. One, having to do with
+mobilizing locally-held capital, is often overlooked and is highlighted
+below.
+
+Our consideration of effective social investment begins with two ideas.
+The first is that effective giving can lead to multiplier effects. It
+can ``crowd in'' other resources by catalyzing the investments of
+others, increasing the recipient's ability to ``leverage'' its
+resources. Leverage (i.e., to be able to obtain funds to use in addition
+to an institution's own equity) is critical as it determines an
+institution's ability to reach wide scale. Effective social investment
+can be used to expand leverage and hence market coverage, holding
+constant other social concerns.
+
+The second consideration is that philanthropic giving can change the
+incentives for recipients to work hard (as can commercial lending).
+
+In this framework, profitability is neither necessary nor sufficient for
+attracting commercial capital. Contrary to some popular claims, earning
+profits -- even high profits --will frequently not expand the leverage
+of microfinance to take those institutions to wide scale. The presence
+of a social investor can however tip the scales for private resources to
+pour in. Total output may be enhanced by supporting institutions that
+would not exist if profitability was the sole concern. Of course it is
+no great surprise that a subsidized investment can expand an activity or
+a sector, the claim however is that social investors and philanthropic
+capital can expand output and welfare by repairing and expanding
+markets.
+
+The framework has a specific implication for the most effective use of
+social investment. We describe arguments that push social investment
+either ``high'' or ``low'' when directed to poor communities.
+Specifically, we show that smart subsidy involves allocations that
+either go to institutions serving relatively well-off (but still poor)
+customers, where the potential for leverage is maximized, or to
+institutions serving the poorest customers. There is less ``bang for the
+buck'' in supporting a middle range of institutions that are
+self-sufficient with their own resources but for which leverage (and
+thus potential scale) is limited.
+
+\hypertarget{two-layers-of-moral-hazard}{%
+\subsection{Two layers of moral
+hazard}\label{two-layers-of-moral-hazard}}
+
+The analysis focuses on social investment in microfinance institutions.
+The particular gap filled by social investors is created by the
+unwillingness of most commercial banks to serve the poor. One well-known
+difficulty for banks stems from moral hazard on the part of borrowers.
+In practice, though, moral hazard is mitigated by microfinance
+institutions through the development of technologies, contracts, and
+management practices that limit risk. All of this takes effort, but the
+high repayment rates achieved by leading practitioners are testimonies
+to impressive successes. The essential insight in mitigating moral
+hazard is that incentives are improved by exposing people to the
+consequences of their actions. In the microfinance context, the denial
+of new loans in the case of default (via ``progressive lending'') and
+the peer pressure associated with group lending can reduce moral hazard
+by adding serious repercussions for bad outcomes (Armendariz de Aghion
+and Morduch, 2005).
+
+Given the success in controlling moral hazard, investors ought to be
+interested in funding microfinance institutions and expanding their
+scale. Investments should be pouring in, and they are starting, but most
+investments are made by social investors with explicit philanthropic
+objectives.
+
+While social investors are willing to forego the kind of financial
+returns that alternative investments could bring, they nonetheless work
+hard to preserve their capital. The result is that most money channeled
+through microfinance investment funds and via International Financial
+Institutions supports ``top-tier,'' mature, financially self-sufficient
+institutions (Abrams and von Stauffenberg, 2007). The growing,
+not-yet-profitable institutions that are needed to expand the sector are
+targeted by less than one fifth of the funds in the MicroBanking
+Bulletin's survey of funds (Barres, 2005:53).
+
+One of the chief difficulties for investors---whether driven by
+commercial or social ends--is a second layer of moral hazard. The basic
+moral hazard problem described above involves the microfinance
+institution and the customer. This second problem involves the investor
+and the microfinance institution. Once it is the investor's resources
+that are ultimately at risk (rather than just the microfinance
+institution's resources or the customers'), the incentives are reduced
+for the institution to be diligent in managing finances, monitoring
+loans, and innovating. The incentives to properly screen potential
+customers weaken, as do the incentives to chase down delinquent
+borrowers.
+
+The risks are not trivial. Oikocredit, for example, as of late 2004
+faced a portfolio at risk (90-day) of 7 percent on its \$67 million
+social investment portfolio (Heinen 2005: 33). In a review of 104 loan
+contract disbursed before the end of 2002, the average repayment rate
+was about 91 percent. Seventy four percent of contracts were found to be
+repaid ``almost always on time,'' but ``15 percent require continuous
+monitoring to follow overdue payments closely, and another 11 percent
+can be classified as bad-debt cases that are persistent in their
+default. The latter cases come with high monitoring and legal costs and
+are likely to lead to (partial) loan loss in the end.'' The challenges
+among the African institutions are greater: ``Only 57 percent of MFIs in
+the African sample manage to pay ``on time,'' while more than one out of
+four are structurally delayed in payment of invoiced amounts (Heinen
+2005: 34-35).'' The worst performers tended to newly-started,
+medium-sized urban banks or NGOs in Africa or Asia (Heinen 2005: 39).
+
+Without collateral fully backing many of the institution's financial
+portfolios, this kind of risk becomes a major concern for prudent
+investors. Recognizing moral hazard matters since, under moral hazard,
+potential asset-poor customers typically face credit rationing---even
+though they may have worthwhile investment projects. The projects are
+worthwhile in the sense that they would generate enough income to allow
+borrowers to in principle pay back loans with interest, and an
+entrepreneur would profitably undertake the project with their own money
+if they had the necessary fundsThe potential trouble is that the
+borrowers cannot find funding for their projects. The same holds for
+worthy institutions that are rationed out of the capital market due to
+information problems. Much of the modern theory of financial
+intermediation has been built upon this particular insight (Diamond
+1984; Tirole, 2006) but the application of this theory to understanding
+the role of public policy and social investors in shaping the emergent
+financial intermediation landscape remains considerably unexplored.
+
+We argue that commercial investors play important roles, but by virtue
+of their philanthropic objectives, social investors can help increase
+leverage, expand scale, and increase total output in a sector in ways
+that commercial investors by themselves often cannot.
+
+Specifically, we demonstrate cases where philanthropic-giving can in
+principle raise output, increasing an economy's overall
+productivity---and lead to GDP increases in addition to poverty
+reduction. The possibility arises because social investors, by
+definition, are willing to absorb costs in order to bring gains. This
+is, of course, their reason for existence. They can do more than shift
+resources: they can also help increase the total sum of resources
+available. The question then is: How can they most powerfully enact such
+``productivity-enhancing'' investments.\footnote{This language is from
+  Pranab Bardhan, Samuel Bowles, and Herbert Gintis (2000).}
+
+Our consideration of effective social investment begins with two ideas.
+The first consideration is that philanthropic giving can expand the
+contract space by being willing to subsidize the `limited liability
+rents' that often stand in the way of more trades in the commercial loan
+market. Limited liability rents refer to the returns that must be left
+with borrowers, or the loan officers that monitor them so as to provide
+incentives to effort when limited liability constraints restrict the
+incentives that can be provided by threatening punishments for example
+by using legal mechanisms to seize collateral. When such rents plus the
+cost of loan monitoring become too large relative to expected project
+gains, lenders may walk away from making loans to individuals without
+collateral wealth, leaving socially valuable projects unfunded. A small
+subsidy in such contexts can a times be enough to turn a small private
+loans that might otherwise have been unprofitable now profitable. If
+enough of those small loans become profitable, a new microfinance
+institution might emerge where otherwise it might not have.
+
+The second consideration is that effective giving may lead to multiplier
+effects. It can ``crowd in'' other resources by catalyzing the
+investments of others, increasing the recipient's ability to
+``leverage'' its resources. Leverage (i.e. to be able to obtain funds to
+use in addition to an institution's own equity) is critical as it
+determines an institution's ability to reach wide scale, and wider scale
+can lower average fixed costs. Effective social investment aims to
+expand leverage, holding constant other social concerns.
+
+In this framework, profitability is neither necessary nor sufficient for
+attracting commercial capital. Merely earning profit will not generate
+the leverage to take institutions to wide scale. Moreover, productivity
+can be enhanced by supporting institutions that would not exist if
+profitability was the sole concern.
+
+The framework has a specific implication for the most effective use of
+social investment. We describe arguments that push social investment
+either ``high'' or ``low'' when directed to poor communities.
+Specifically, we show that smart subsidy involves allocations that
+either go to institutions serving relatively well-off (but still poor)
+customers, where the potential for leverage is maximized, or to
+institutions serving the poorest customers. There is less ``bang for the
+buck'' in supporting a middle range of institutions that are
+self-sufficient with their own resources but for which leverage (and
+thus potential scale) is limited.
+
+\hypertarget{the-model}{%
+\section{The Model}\label{the-model}}
+
+The analysis builds upon extensions to a simple model similar to what
+Jean Tirole (2005) describes as a `workhorse model' for understanding
+the modern theory of corporate finance and the role of net-worth in
+shaping access to credit under moral hazard\footnote{Jean Tirole's
+  sweeping 635-page \emph{Theory of Corporate Governance} textbook is
+  built around a workhorse model very similar to this, which he calls
+  the `simplest model of credit rationing ... to illustrate the role of
+  net-worth (p. 114).' See also Holmstrom and Tirole (1997, 2008) and
+  Conning (1999) for earlier analyses of the underlying model.}.Our aim
+is to understand the range of financial contracts and intermediary
+structures that can and will emerge to serve different segments of a
+heterogeneous population of would-be borrowers, and how this financial
+landscape might be transformed. To highlight the role of borrower net
+worth we begin with the extreme assumption that would-be entrepreneurs
+live in spatially segregated neighborhood according to their initial
+asset holdings and that localized financial institutions (FIs) or bank
+branches, managed by knowledgeable local managers, must be established
+within each neighborhood in order to identify and monitor borrowers.
+CCreditors to these FIs (which might include depositors) and, later in
+the paper, informed equity investors may however make investments across
+neighborhoods.
+
+There will be up to four types of agents: (a) households that become
+entrepreneurs to run small business firms; (b) one or more local
+financial institutions in each neighborhood, wholly or partly owned and
+managed by locally informed equity investors. These financial
+institutions may lend out of their own equity capital and/or may be able
+to intermediate funds from (c) private investors (possibly including
+savings depositors). Finally, social investors may be able to affect the
+nature and depth of the above relationsips through additional
+investments, subsidies and guarantees of their own.
+
+Each household is assumed risk neutral and to have access to a
+production or trading project which requires lump sum investment
+\emph{I} to be initiated. If the entrepreneur secures and invests the
+lump sum and works diligently then the project succeeds and generates
+cash returns \emph{X\textsubscript{i}} with probability \emph{p} or it
+will fail and generate nothing with probability 1-\emph{p}. If this
+borrower is non-diligent, for instance because she diverts effort or
+resources from the project to other uses, then the probability of
+success is reduced from \emph{p} to \emph{q} but the entrepreneur
+obtains a \emph{private} benefit \emph{B}. Since the entrepreneurs
+choice of diligence cannot be verified and private benefits cannot be
+observed or seized by the lender, the potential for borrower moral
+hazard arises
+
+We assume potential entrepreneurs have no \emph{liquid} capital of their
+own, so they must borrow the entire amount \(I\) to carry out the
+project. Would-be borrowers may however have \emph{illiquid} assets
+\(A\) that can serve as collateral guarantee in the event of failure.
+These are assets the borrower prefers to keep tied up in other projects
+or investments, or they may be pledgeable future cashflows. What matters
+is that these resources can be credibly pledged to the lender in the
+event that the financed project should fail. Although some microfinance
+lenders do not explicitly require a collateral pledge there is little
+doubt that most experienced loan officers form an estimate of how much
+they believe can be credibly recovered from a borrower in the event of
+low returns on the finance project, and this estimate of \(A_{i}\) will
+be an essential determinant of the terms of the contracts
+offered.\footnote{We assume here that the full value of may be taken
+  from the borrower and costlessly transferred to the lender, but the
+  analysis can be easily extended to cases where some or all of the
+  value of is lost in the transfer.}
+
+An MFI is assumed to begin with initial equity capital \emph{K} -- which
+we shall often refer to as \emph{local intermediary capital}. The MFI
+could be either a for-profit financial entity, in which case \emph{K}
+would be interpreted as the owners' initial equity investment, or it
+might be a not-for profit organization which is prohibited from
+distributing dividends, in which case \emph{K} might be startup capital,
+perhaps seeded by a donor.\footnote{In later sections we will expand our
+  definition of to encompass certain types of outside equity or
+  quasi-equity investments (such as subordinated debt) from donors or
+  social investors.} \emph{K} is capital owned by, or under the control
+of individuals who know how to operate an MFI in this particular
+neighborhood and who will be in a good position to monitor the loans of
+any borrowers that they may create. The point to emphasize is that \(K\)
+is not easily created or simply borrowed from outside of the
+neighborhood -- it is capital that is tied to people with a specific set
+of skills. Much of the analysis that follows turns on understanding when
+and how \(K\) can be leveraged to attract outside investors to expand
+the scale of lending in a particular neighborhood.
+
+If \(K\) is the MFI's only source of funds (i.e. no outside leverage is
+possible), then after the MFI has paid for its fixed operating costs
+\(F\), it will be able to lend out up to \(K - F\) worth of funds per
+period and therefore reach \(N_{0} = (K - F)/I\) borrowers. Since the
+MFI always has the option of keeping \(K\) invested in a safe investment
+for gross return \(\gamma K,\) and it wants to remain sustainable into
+the future we will assume that the MFI will only come into business if
+after considering all cashflows (including possibly outside subsidies)
+it can expect to earn this rate of return.
+
+Any would-be entrepreneur has the option of not taking a loan and
+engaging in an alternative activity or occupation where they are assumed
+to earn a reservation payoff, normalized at zero. A financed project
+yields either a verifiable return of \(X\)when it succeeds or it fails
+to yield nothing. The probability distribution of project returns is
+determined the borrowers' choice of effort or diligence. If the borrower
+chooses to be diligent, in the sense that they exert personal effort and
+use all borrowed funds for the financed activity as stated in the
+business plan they described to their lender, then the project succeeds
+with probability \(\text{p.}\) A borrower who is non-diligent lowers the
+probability of success from \(p\) to \(q < p\), but captures some
+private benefits \(B\) by avoiding effort and/or by redirecting some
+borrowed funds to activities whose return may not observed or seized by
+the lender. \(B\) therefore captures the opportunity cost of being
+diligent.
+
+A loan contract can be described as a contingent borrower reward
+schedule \((s_{s},s_{f})\) where \(s_{i}\) indicates the net monetary
+return to the borrower in state \(i\), which can be success (\(i = s\))
+or failure (\(i = f\)).\footnote{With a few additional assumptions the
+  model can be extended to a multiple-outcome multiple-action framework
+  where the optimal contract takes the form of a standard debt contract.
+  This complicates the analysis but does not fundamentally alter the
+  main conclusions (Innes, 1990; Conning, 2006)} We assume that MFIs
+offer competitive contracts that maximize the expected return to the
+borrower. This assumption can be motivated either by assuming that each
+MFI wants to maximize profits but that contestable entry pushes lenders'
+profits to zero, and/or that MFIs have a social mission that leads them
+to care about borrower welfare subject only to a sustainability (i.e.
+break even) condition.
+
+Consider a contract in which a borrower pledges all their available
+collateral\(A\). We focus on this particular contract to identify the
+`minimum collateral requirement' that a borrower would have to have in
+order to be feasibly reached by a lender. The contract will take the
+form \((s_{s},s_{f})\) =\((s, - A)\) where \(- A\) is the return to the
+borrower when the project fails (i.e. the project generates zero returns
+and the borrower loses the collateral pledge). The lender is repaid only
+\(R_{f} = A\) when the project fails and \(R_{s} = X - s\) when it
+succeeds. The lender will willingly participate in this contract so long
+as the borrower is diligent and the expected return under diligence
+\(E\lbrack R_{i}|p\rbrack = E\lbrack X_{i}|p\rbrack - E\lbrack s_{i}|p\rbrack\)
+exceeds the cost of lending:
+
+\(p(X - s) + (1 - p)A \geq \gamma I + F/N\)
+
+where \(\gamma\) is the gross opportunity cost of funds to the MFI (one
+plus the interest rate the lender pays) and \(F/N\) is the average fixed
+cost per borrower. For the time-being we take \(\text{N\;}\)to be fixed,
+but later endogenize its value. The line labeled \(PC(0)\) in figure 1
+indicates combinations of \(s\) and \(A\) at which this lender's
+participation constraint is exactly met. A point (\(- A,s\)) on this
+Cartesian diagram represents a potential contract, but only contracts
+that lie below \(PC(0)\) in this contract space satisfy the
+participation constraint.
+
+The expected return to the \emph{diligent} borrower is:
+
+\[ps + (1 - p)( - A) - B\]
+
+\(= p(s + A) - A - B\)
+
+while the expected return to a \emph{non-diligent} borrower is:
+
+\(q(s + A) - A\)
+
+It follows that the borrower prefers to be diligent so long as (2)
+exceeds (3) or
+
+\(s \geq - A + \frac{B}{\Delta}\)
+
+Where ∆\emph{=p-q}. This constraint restricts incentive-compatible
+contracts to lie above line \(IC(0)\) in figure 1.\footnote{To keep
+  things interesting we assume parameters such that the lender could not
+  recover lending costs if the entrepreneur chose to be non-diligent.
+  The lender will therefore only be interested in participating if they
+  can be convinced that the contract satisfies this incentive
+  constraint.} The range of feasible contracts must therefore lie in the
+shaded region above \(IC(0)\) where the borrower remains diligent and
+below \(PC(0)\) where the lender recovers all costs. Of particular
+interest is the contract with the \emph{minimum collateral requirement},
+or the lowest required pledge \(A\), since this contract will allow
+reaching the largest group of borrowers\(.\) This contract is found at
+the intersection of \(IC(0)\) and \(PC(0)\) and is labeled \(U\) in the
+figure.
+
+To see this mathematically note that limited liability sets a floor on
+the borrower's return in the failure state of \(- A\). This and
+constraint (4) requires that the borrowers' return to success not be set
+below\(s = p/\Delta - A\) . A contract that satisfies limited liability
+and incentive constraints therefore must leave the client with an
+expected return of at least
+
+\(E\left\lbrack s_{i}|p \right\rbrack = - A + \frac{\text{pB}}{\Delta}\)
+
+Following Laffont and Rey (2003) we refer to expression \(pB/\Delta\) as
+a \emph{limited liability rent} (LLR). It is the minimum share of
+expected project returns that must be left to a client if incentives and
+limited liability to be maintained. This rent is larger the larger is
+the opportunity cost of diligence \(B\) and the more difficult it is to
+infer diligence choice from simply observing the project outcome (i.e.
+the larger is \emph{q/p})
+
+Using (5) to substitute for \(E\left\lbrack s_{i}|p \right\rbrack\) in
+(1) and then solving for the threshold value of \(A\) at which this
+constraint exactly binds yields an expression for the \emph{minimum
+collateral requirement} that a client would have to pledge to attract
+the participation of an unsubsidized lender:
+
+\((0,N) = \frac{\text{pB}}{\Delta} - \left\lbrack \text{pX} - \text{γI} \right\rbrack + \frac{F}{N}\)
+
+Where \((0,N)\) refers to the minimum collateral requirement on a
+zero-monitoring loan when the MFI services \emph{N} borrowers. Borrowers
+with assets \(A \geq (0,N)\) will be able to obtain loans of size \(I\)
+and earn expected return\(pX - \gamma I - F/N\), but entrepreneurs with
+less than this amount will be excluded from the loan market even though
+their projects may be socially profitable, i.e.
+\(pX - \gamma I - F/N > 0.\) For later reference we define
+\(= (0,\infty)\) to be the minimum collateral requirement for a
+non-monitored loan in a really large MFI (i.e. where fixed costs per
+borrower are essentially nil).
+
+A higher level of \((0,N)\) implies a larger number of borrowers
+excluded from the loan market. Expression (6) suggests the available
+ways for MFIs and other financial innovators to improve loan access and
+terms: (a) by acting to lower the size of the limited liability rent
+either by acting to directly reduce the borrower's opportunity cost of
+diligence \(B\) or changing the likelihood ratio (e.g. lending for
+projects with lower \(l =\) \(q/p\) or that are `safer' under diligence
+compared to non-diligence); (b) by lowering of average fixed costs
+\(F/N\) either by lowering \(F\) or expanding scale by increasing the
+number of borrowers \(N\); or by (c) raising the expected returns from
+client's projects \(\text{pX}\) or lowering the MFI's cost of funds
+\(\gamma\).
+
+\hypertarget{monitored-lending}{%
+\subsection{1.1. Monitored lending}\label{monitored-lending}}
+
+A defining characteristic of most microcredit lending is the heavy use
+monitoring and other incentive mechanisms to substitute for the use of
+loan collateral guarantees. One way to interpret monitoring and control
+activities is that they aim to try to raise \emph{p} relative to
+\emph{q}, for instance via technical assistance that raises the
+productivity of client efforts under diligence. This approach was
+followed in Banerjee, Besley, and Guinnane (1994) and Madajewicz (2004).
+An alternative interpretation is that monitoring of borrowers serves to
+lower the value of \emph{B}. This is the approach of Holmstrom and
+Tirole (1997), Conning (1999) and what we shall follow below.
+
+`Monitoring and control activities' of this last kind aim to reduce the
+scope for moral hazard by reducing the value of private benefits \(B\)
+that the borrower stands to capture. A straightforward way to capture
+the role of such active monitoring is to assume that by spending \(m\)
+on monitoring and control activities a MFI can lower the borrowers'
+benefits of non-diligence linearly from
+\(B(0) = B\)to\(B(m) = B - \text{αm}\), where \(\alpha\) is a parameter
+that captures the degree of monitoring effectiveness. We might think for
+example of a lender making frequent and unannounced visits to an
+entrepreneur's home or place of business, or their insistence that the
+borrower prepare a business plan. These are just a few examples of the
+costly monitoring activities that can be use to lower a borrower's scope
+for diverting loan funds and other resources to uses other than the
+financed activity. Since it doesn't matter whether we define \(B\) as a
+private benefit to non-diligence or a cost to being diligent, we could
+also think of monitoring as providing helpful technical assistance that
+also lowers the borrower's cost of raising the probability of project
+success.
+
+Since monitoring activities are however themselves costly and difficult
+activities, an MFI's financial backers must put in place the right
+incentive and governance structures to make sure that their managers and
+loan officers are properly motivated to carry out this monitoring at
+optimal levels to pursue the objectives of its primary stakeholders. An
+MFI's ability to leverage outside funds depends therefore in primarily
+on how well they can convince outside investors that incentives and
+monitoring effectiveness will not be damaged once the MFI begins to
+scale up by using outside funds.
+
+For the moment we shall set aside the question of outside funding and
+focus first on MFIs that fund their operations using only the internal
+equity funds \(K\) at their disposal. Monitoring by the MFI adds to the
+total cost of lending (depicted as a shift in the participation
+constraint from \(PC(0)\) to \(PC(m_{1})\) in figure 2 but it also
+relaxes the incentive compatibility constraint (depicted as a shift from
+\(IC(0)\) to \(IC(m_{1})\)). With monitoring the earlier expression (6)
+for the minimum collateral requirement now becomes\footnote{For the time
+  being, we continue to assume that \emph{N} remains fixed, but we add
+  \emph{N} as an argument for later use.}:
+
+\((m,N) = \frac{p(B - \alpha m)}{\Delta} - \left\lbrack \text{pX} - \text{γI} \right\rbrack + F/N + m\)
+
+Under the assumption that on the margin monitoring is a worthwhile
+activity or that \(\alpha/(1 - l) > 1,\) monitoring will lower the
+minimum collateral requirement linearly. Figure 2 illustrates how an
+increase of monitoring from \(m = 0\) to \(m = m_{1}\) might reduce the
+minimum collateral requirement from \(= (0)\) to \((m_{1}).\) Additional
+monitoring continues to reduce the minimum collateral requirement, but
+more monitoring increases the cost of funds to the borrower who (from)
+pays expected borrowing costs
+
+\[\gamma I + F/N + m\]
+
+It should be immediately clear that borrowers prefer less heavily
+monitored loans because they are less costly. Hence borrowers will chose
+loans with only as much monitoring as is just sufficient to bring the
+minimum collateral requirement down to their available asset level\(A\).
+Figure 3 depicts the relationship between monitoring and the minimum
+collateral requirement . A borrower with available assets \(A < A\)
+would choose a loan with just enough monitoring intensity \(m_{A}\) to
+bring the collateral requirement down to their available assets, or
+\((m_{A}) = A.\)
+
+There is a limit to how far monitoring can expand access to asset-poor
+borrowers. No borrower would voluntarily agree to a loan where the total
+cost of borrowing exceeds expected project returns. This defines a
+maximum monitoring level
+
+\(= pX - \text{γI} - F/N\)
+
+beyond which no borrower would willingly participate\(.\) To summarize,
+monitoring can expand loan access to borrowers with assets in the range
+\(A \in \lbrack(),(0)\rbrack\) that would have been excluded from the
+non-monitored loan market.
+
+\hypertarget{delegated-monitoring-leveraged-intermediation-and-scale}{%
+\subsection{1.2. Delegated monitoring, leveraged intermediation and
+scale}\label{delegated-monitoring-leveraged-intermediation-and-scale}}
+
+Thus far we have said nothing of the organization or governance
+structure of the MFI, where the MFI obtains its loanable funds from, or
+what determines the scale of lending (i.e. the number or
+borrowers\(N\)).
+
+For each loan of size \(I\), amount \(I^{m}\) will be financed from MFI
+capital (\(K - F\)) and amount \(I^{u} = I - I^{m}\) (possibly zero) by
+raising funds from an uninformed outside investor (creditors and/or
+depositors to the MFI). Raising outside funds offers the opportunity to
+increase scale from \(N_{0} = (K - F)/I\) to \(N = (K - F)/I^{m}\)
+borrowers.
+
+Creditors or investors in the MFI might include local saving depositors
+or national or international investors who make loans to the MFI. We
+assume that investors have other opportunities for their capital, so
+they will only be interested in investing if the MFI can credibly
+guarantee an expected gross rate of return of \(\gamma\). The central
+concern of any investor will be whether the management and loan officers
+of the MFI have the proper incentive to diligently monitor borrowers so
+as to preserve the quality of the loan portfolio.
+
+There will now be three parties to a loan contract: the borrower, the
+managers/owners of the MFI, and the outside investor(s). The timing of
+the contracting problem is as follows: All parties agree to the terms of
+the contract, the outside lender puts up \(I^{u}\)per borrower, the MFI
+puts up \(I^{m} = I - I^{u}.\) The client then chooses his unobserved
+diligence level, understanding and taking into account that, given their
+stake in his project, the MFI will have incentive to monitor at
+intensity \(m\) per borrower. Project returns are then realized and the
+generated returns are then divided according to the terms of the
+contract.
+
+Loan monitoring is itself an activity that is subject to moral hazard.
+Since the MFI management and staff's actions cannot in general be
+directly verified by outside investors incentives to monitor must be
+provided by tying the MFI agents' rewards to observable outcomes on the
+borrowers' projects. The way outside investors will be convinced that
+the MFI owners and their staff have sufficient incentives to maintain
+the quality of the loan portfolio is by demanding that the MFI place
+enough of their own capital \(I^{m}\) at risk in each borrower's project
+so as to have incentive to monitor by enough to keep the borrowers
+diligent.
+
+The MFI's will earn net return \(R^{m} - \gamma I^{m} - m\) if it
+monitors and the project succeeds and \(- \gamma I^{m} - m\) if it
+fails.\footnote{For the moment we focus on the terms of the contract as
+  if there were only one borrower. In practice the lender will not want
+  to tie the MFI's return to the outcome of a particular project, but
+  rather to the outcomes from the entire portfolio. We will return to
+  this desire for diversification later. For the moment, and to
+  simplify, we follow Holmstrom and Tirole (1997) in assuming that all
+  of the borrowers have projects with stochastic but perfectly
+  correlated outcomes, so all projects succeed or fail at the same time.
+  We will later return to the more general case with diversification, as
+  studied by Conning (2005), Tirole (2005, p158-163) and Diamond (1984).}
+To have incentives to monitor the MFI must expect to earn more by
+monitoring at intensity \(m\) than by not monitoring at all, where
+intensity \(m\) is the minimum amount required to induce the borrower to
+be diligent, given the other terms of the contract. The MFI's incentive
+compatibility constraint is therefore:
+
+\[pR^{m} - \gamma I^{m} - m \geq qR^{m} - \gamma I^{m}\]
+
+\(R^{m} \geq m/\Delta\)
+
+The MFI must also be willing to participate, which is guaranteed if they
+can expect to earn as much from their efforts and funds inside the
+relationship as outside (i.e. they expect to earn as much by investing
+\(I^{m}\) elsewhere as they do by lending:
+
+\(pR^{m} \geq \gamma I^{m} + m + F/N\)
+
+Since the MFI is responsible for organizing the banking activity,
+including renting buildings and equipment, they must cover \emph{F/N} to
+enter and stay in the financial intermediation business.
+
+For the moment we will assume that MFIs are driven by a social concern
+for the welfare of the borrower (or equivalently that competition
+amongst potential intermediaries) so there are no economic profits or,
+equivalently the return on MFI equity is equal to\(\gamma\). We will
+later relax this assumption, but for the moment the assumption of zero
+profits implies that offered loan contract will be on the most favorable
+terms the borrower, so this participation constraint as well as that of
+the outside investor will bind in equilibrium. Substituting the
+intermediary's binding incentive constraint in this participation
+constraint yields:
+
+\(\gamma I^{m}(m) = \frac{\text{qm}}{\Delta} - \frac{F}{N}\)
+
+which defines the MFI's required equity stake in the entrepreneur's
+project if incentives are to be maintained to monitor at intensity
+\emph{m} and lending costs are to be minimized to maximize leverage and
+outreach.\footnote{We later explore the possibility that intermediary
+  capital is scarce and MFIs earn a return on equity above γ.} The
+higher the required amount of monitoring \emph{m} to keep a borrower
+diligent, the higher the stake the MFI must hold in the project since
+\emph{q}/∆\textgreater{}0. This expression suggests an immediate
+explanation for why leverage has remained disappointingly low in
+microfinance. As Ledgerwood (1998, page 41) explains `most MFIs are not
+fully leveraged due to their inability to borrow funds on the basis of
+their performance and debt capacity.' The above expression suggests why:
+MFIs must monitor their loan portfolios heavily to maintain its value.
+Monitoring is a replacement for missing collateral. The more heavily the
+MFI concentrates on a segment of the market without collateralized loans
+(which could be sold to debt collectors) the more the portfolio value
+depends on the level of monitoring, and monitoring incentives require
+the MFI retain a deeper stake and therefore that it be less leveraged.
+The commonly held myth that the pursuit of higher MFI profits should
+translate into higher leverage does not take this factor into account.
+
+In a situation where MFIs seek to maximize borrower returns (or in a
+competitive market) both the MFI intermediary and the uninformed outside
+lenders (if any can be attracted) earn just enough to cover their costs
+and earn γ in expectation on their investments. The minimum collateral
+requirement can be found as before, by substituting the borrower's
+binding incentive constraints the MFI's monitoring incentive constraint
+and the uninformed lender's binding participation constraint
+(\(pR_{u} + (1 - p)A = \gamma I_{u}\)) into the MFIs participation
+constraint:
+
+\(pR_{m} \geq \gamma I_{m} + m + F/N
+pX - \left\lbrack \frac{p(B_{0} - \alpha m)}{\Delta} - A \right\rbrack - \gamma I_{u} \geq \gamma I_{m} + m + F/N\)
+
+and solving for \emph{A} the collateral minimizing solution is again as
+in (7):
+
+\((m,N) = \frac{p(B - \alpha m)}{\Delta} - \left\lbrack \text{pX} - \text{γI} \right\rbrack + F/N + m\)
+
+with the important new interpretation that \emph{N} will now be treated
+as an endogenous variable. Higher leverage will mean the MFI can reach a
+larger number of borrowers \(N\)with any given level of equity
+\(K - F\). This will reduce the average fixed cost of borrowing per
+borrower \(F/N\) which will, in turn, open up space to adjust the terms
+of the financial contracts and reach yet more borrowers.
+
+For borrowers in asset class \emph{A} we can now solve for the
+equilibrium level of borrowers \emph{N} and the minimum required amount
+of monitoring per borrower \emph{m}. These will be given by the solution
+to the following system of equations:
+
+\((m,N) = A\)
+
+\(N = \frac{(K - F)}{I^{m}}\)
+
+where \(I^{m}\) is given by (11). As demonstrated in the appendix this
+system can be solved to give the following closed-form solution for
+\emph{N} and \emph{m} as a function of a client's initial asset level
+\(A\) and parameters describing the MFI's lending technology and equity
+base:
+
+\(N^{*} = \frac{\Gamma}{\left\lbrack - A \right\rbrack}\mspace{6mu}\)
+
+\(\mspace{6mu} m^{*} = \left\lbrack - A \right\rbrack \cdot \frac{\Delta}{q}\frac{(\gamma K - (1 - \gamma)F)}{\Gamma}\)
+
+where \(= (0,\infty)\) and
+\(\Gamma = \frac{((1 - \alpha)p - q)}{q}\lbrack\gamma K - (1 - \gamma)F\rbrack - F\).
+
+Required monitoring falls towards zero as the client's collateral wealth
+\emph{A} approaches\(\), the collateral requirement for an non-monitored
+loan in a big bank (where fixed costs per loan are nil). Leverage, and
+therefore also the number of borrowers \emph{N} that can be reached,
+rise exponentially as \emph{A} approaches\(\)from below. This apparently
+extreme result -- that leverage becomes infinite -- is an artifact of
+our implicit assumption that it is costless for the MFI or any third
+party to collect collateralized debt. In practice local MFIs will have
+an advantage in collecting compared to an outside investor and there
+will be moral hazard involved in the collection of such debt if
+collection is at all costly (Townsend, 1979; Diamond, 1984). It is also
+true that uninformed lenders (small depositors in particular) will
+typically not be in a good position to observe the MFI's debt to equity
+holdings. For all these reasons financial institutions that accept
+deposits are typically regulated which in effect places an institutional
+cap on maximum leverage. To capture this idea and to keep the number of
+borrowers from rising to infinity we will impose an institutional limit
+on leverage in the form of \(N \leq N_{\max}\) This is without loss of
+generality because the focus of our analysis is on MFIs that will be be
+unable to reach this high level of leverage anyway.
+
+Figure 4 shows how the equilibrium level of \emph{N} and \emph{m} would
+be determined for MFIs that aim to reach target groups with assets
+\emph{A} and \emph{A'}.
+
+The MFI's balance sheet can represented simply as:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\textbf{Assets} & \textbf{Liabilities}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.47\columnwidth}\raggedright
+\(N \cdot I\mspace{6mu}\)Loans\strut
+\end{minipage} & \begin{minipage}[t]{0.47\columnwidth}\raggedright
+\(N \cdot I^{u}\mspace{6mu}\) Debt
+
+\(N \cdot I^{m} = K - F\) Owners Equity\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+Of course, when the MFI is unable to lever up and attract outside
+deposits or other forms of debt the liability side of the balance sheet
+will consist solely of owners equity (including donations) and the
+number of loans will simply be \(N_{0} = (K - F)/I\).
+
+A numeric example will help to illustrate the relationships captured by
+the model and predictions regarding the reach of different types of
+lender on this market. Consider a simple case where the parameters are
+as given in Table 1.
+
+Consider first the earlier case where the MFI lends only out of its
+available capital base \(K,\) without leverage, so \(N = N_{0}\). For
+these parameters the moral hazard problem would lead lenders to demand
+\(= (0;N_{0}) = 130\) units of pledgeable income to cover a
+zero-monitoring loan of \(I = 100\). This is the kind of lending carried
+out by ordinary banks that typically work only with clients with
+substantial savings or cash flows relative to the size of the borrowed
+amount. The associated loan would specify fixed repayment amounts of
+\(= (130,130)\) on a loan of size \(I = 100.\)
+
+The implied expected cost of funds to the borrower is forty percent:
+twenty percent to cover the lender's variable cost of funds
+\(\text{γI}\) and another \(10\) percent to cover average fixed cost of
+\(F/N_{0} = 10\) per loan. The borrower earns an expected return
+\(pX - \gamma I - F/N_{0},\) which for these parameters is
+\(30( = 180 - 120 - 30).\)
+
+Consider the possibilities and limits of monitored lending to reach more
+borrowers. Any borrower with less pledgeable assets \(A\) will have to
+resort to a more expensive monitored loan, or receive no loan at all.
+Since monitoring raises the cost of borrowing, borrowers will want a
+loan with only just as much monitoring as is minimally required to bring
+the collateral requirement down in line with their available assets
+\(A\), or the minimum \(m\) to set \((m,N_{0}) = A\) using (7). For
+instance a borrower with \(A = 60\) would require a loan with minimum
+monitoring intensity \(m = 35,\) assuming an MFI with no leverage, or
+\(N = N_{0}\).The borrowers total cost of borrowing \(I\) will then be
+\(\gamma I + F/N_{0} + m = 120 + 20 + 35 = 175\), for an implied
+interest rate of 75 percent.\footnote{While this borrower pays out only
+  60 out of collateral when their project fails (compared to 130 for the
+  earlier borrower who could post collateral to receive a loan with zero
+  monitoring), they take home only 23.33 when the project succeeds
+  (compared to 70). This leaves this borrower with an expected profit of
+  only 15 (compared to 30).}
+
+Hence, although monitoring expands access, these asset-poor borrowers
+pay much higher financing costs to cover the MFI's higher costs of
+monitoring. For the parameters above, the maximal feasible level of
+monitoring is \(= 50\) and the lowest the collateral requirement can be
+pushed is down to \(()\) = 30. Monitoring carried out by the MFI with no
+leverage can therefore expand access to borrowers with assets in the
+range \(A \in \lbrack\)30\(,\) 130\(\rbrack\) who would otherwise not
+have been served. Any borrower with \(A\) less than \(()\) will prefer
+to forgo a loan and remain in the low-return occupation. Even though
+they have access to a socially profitable investment (and one that they
+would carry out if they had had their own funds) they are unable to
+secure financing to profitably carry out the project due to the the
+nature of the information asymmetry.
+
+In the example thus far we have assumed that the MFI uses only its own
+funds. It has \(K = 11000\) of capital, \(F = 1000\) of annual fixed
+costs, and it leverages no outside funds. It was therefore able to lend
+out only 10,000 through \(N_{0} = 100\) loans at \(I^{m} =\)100 dollars
+per loan). This MFI's balance sheet would simply look as follows:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\textbf{Assets} & \textbf{Liabilities}\tabularnewline
+\midrule
+\endhead
+10,000 (=\(N_{0}I^{m})\mspace{6mu}\) Loans & 10,000 \(( = K - F)\)
+Owners Equity\tabularnewline
+\bottomrule
+\end{longtable}
+
+Consider next the case of an MFI that attempts to leverage outsider's
+funds to increase outreach and lower average fixed costs. Notice
+immediately from (11) that if there is no monitoring required there is
+no minimum required stake \(I^{m}\) and leverage \((I - I^{m})/I^{m}\)
+could in principle be infinite. In that case the MFI would be a perfect
+and costless intermediary who could always repay its investors, because
+it has fully collateralized loans and zero costs of intermediation. This
+would be the financial equivalent of a perpetual motion machine. Since,
+as previously discussed, even fully collateralized loans require some
+monitoring and collection is itself a costly activity, in reality
+\(I^{m}\) would never be zero, if for no other reason than that
+regulators would intervene to limit leverage via capital adequacy
+requirements. We will assume that regulators require MFIs to have a
+least ten cents of their own capital at risk for every dollar loaned
+(i.e. \(I^{m} \geq 0.1I\)) \(,\) or that they can borrow no more than
+ten times their equity base.
+
+For the above parameterized example this means that \(N_{\max}\) With
+this many borrowers the minimum collateral pledge on a non-monitored
+loan drops to \(= (0;N_{\max}\) (from 130 when\(N = N_{0} = 100\)) on
+account of the fact that the average fixed cost per borrower has been
+reduced from \(F/N_{0} = 10\) to \(F/N_{\max}\).
+
+A collateral requirement of 121 on a loan of size 100 still leaves a lot
+of excluded borrowers, so let's turn to how increased leverage expands
+the possibilities of using monitored loans. The optimal monitoring
+intensity \(m\) and maximum feasible scale \(N\) is determined by
+equations (16) and (15) and will depend on the level of \(A\) of the
+target borrower group. Starting from the zero-monitoring collateral
+requirement \(,\) we can lower the collateral requirement to reach
+successively poorer borrowers with assets \(A <\) by increasing
+monitoring intensity \(\text{m.}\) As monitoring intensity rises
+however, the minimum investment stake of the MFI \(I^{m}\) must also
+rise (given by (11)). This means that MFIs that specialize in reaching
+neighborhoods with lower \(A\) achieve lower leverage \(I/I^{m}\) and
+therefore also that they reach a lower number of borrowers \(N\) with a
+given amount of startup capital (expression ((14).
+
+Figure 4 describes the financial landscape that emerges in this model.
+We assume that there are many borrowers at each asset level in each
+neighborhood and a different MFI (with initial capital \(K\) and fixed
+costs \emph{F}) specialized in lending to borrowers in each of these
+neighborhoods. In the emergent landscape neighborhoods will be
+partitioned into four groups, depending on the initial asset level A of
+the household in each neighborhood. The figures show the relationships
+between pledgeable assets \(A\) of the MFI target group borrowers and A)
+the number of borrowers that the MFI can reach with its available
+capital \(K,\) B) net returns per borrower, and C) total returns (net
+returns per borrower times number of borrowers). Neighborhoods will be
+characterized as falling into one of the following groups:
+
+\emph{\textbf{{Group I} -- Excluded Borrowers}} (\(A < A_{\text{LO}}\))
+
+Entrepreneurs with assets \(A\) below threshold level
+\(A_{\text{LO}} = (,N_{0})\) cannot obtain financing at any profitable
+rate. As a rule MFIs can only reach asset-poor borrowers via increased
+monitoring, but these borrowers are so poor that the monitoring required
+would be prohibitively expensive. The threshold level of monitoring was
+earlier described in (8), as \(= pX - \gamma I - F/N_{0}.\) In the
+absence of any subsidies MFIs that try to reach borrowers with \(A <\)
+\(A_{\text{LO}}\) would lose money and eventually go out of business.
+
+\emph{\textbf{{Group II} -- Monitored loans from non-leveraged MFIs}}
+(\(A \in \lbrack A_{\text{LO}},A_{\text{LEV}}\rbrack\))
+
+MFIs that service borrowers with assets in this range use monitored
+lending but cannot attract any outside investors because the minimum
+required stake \(I^{m}\) in (11) that is required to attract an outside
+investor exceeds the total value of the loan \(I\). These MFIs can reach
+asset-poor borrowers using their own capital, or \(I^{m} = I\) but these
+MFIs can reach only as many borrowers \(N_{0} = (K - F)/I\) as their
+capital permits. The net expected return to a borrower is rising with
+asset levels over this range (since borrowers with more collateral
+require less expensive monitoring), as depicted in the top panel of the
+figure.
+
+These MFIs cannot sell any part of their portfolio of monitored loans
+without, in the eyes of outside investors, diluting their incentives to
+monitor the quality of that loan portfolio diligently. MFIs trying to
+reach borrowers with assets in this range cannot attract outside
+investors not because they are not profitable (in fact they are earning
+normal profits, as are all other MFIs). The commonly heard claim that
+leverage would be raised if only the MFIs raise profits further by
+raising the borrowers' required repayments can be seen to be flatly
+untrue here. In fact, demanding a higher repayment of borrowers would
+only exacerbate rather than improve the situation, by aggravating the
+moral hazard problem for borrowers.
+
+\emph{\textbf{{Group III} -- Monitored Loans from leveraged MFIs}}
+(\(A \in \lbrack A_{\text{LEV}},A_{\text{HI}}\rbrack\))
+
+MFIs that service borrowers in this range are able to leverage their
+capital, and therefore reach a larger number of borrowers. This is
+because the required minimum equity stake \(I^{m}\) is less than the
+full amount of the loan \(\text{I.}\) These MFIs can therefore reach
+\(N = (K - F)/I^{m} > N_{0}\) borrowers, and this number of borrowers
+increases exponentially with higher the level of \(A\) (up to
+\(= (0;N_{\max}\) as depicted in the middle panel of the figure. The
+borrower's net return rises more quickly with \(A\) than for borrowers
+served by non-leveraged MFIs (top panel of the figure) because the costs
+of borrowing fall more rapidly with rising \(A\) because these MFIs can
+take advantage of increasing scale (which lowers average fixed costs).
+The cutoff level \(A_{\text{LEV}} = (m_{\text{LEV}};N_{0})\) where
+\(m_{\text{LEV}}\) is given by the \(m\) at which
+\(\gamma I = \frac{\text{pm}}{(p - q)} - m\).
+
+\emph{\textbf{{Group IV} -- Non-Monitored Loans from highly leveraged
+MFIs}} (\(A \geq A_{\text{HI}}\))
+
+The lower panel of figure 4 shows total borrower gains from the presence
+of one MFI with \(K = 1000\) in each neighborhood. More value is created
+in the less asset-poor communities because MFIs that operate there have
+lower costs due to less monitoring and larger scale due to the
+possibility of outside leverage. This is what the financial structure of
+many markets looks like: the private financial system serves lots of
+people in those segments of the market where borrowers have lots of
+assets or plegeable income (e.g. stable wages that can be garnished) but
+fewer or no borrowers as we move `downstream' to segments of the market
+where borrowers have less pledgeable assets, because they are asset poor
+or self-employed. Of course we might not expect there to be neccessarily
+the same amount of `intermediary capital' \(K\) available in each
+segment of the market, but we will start with that assumption in order
+to explore how additional contributions of capital or subsidy will have
+an impact on different segments of the market.
+
+\hypertarget{smart-subsidies}{%
+\subsection{1.3. `Smart' subsidies}\label{smart-subsidies}}
+
+The graphs point to a major challenge confronting microfinance
+institutions and their financial backers. Donors may be inclined to
+target capital toward MFIs that focus upon asset-poor clients and the
+poor because donors typically care more about the social welfare of poor
+individuals, but the figure and the model suggests that each extra
+dollar of capital transferred to higher-end MFIs can `crowd in' more
+private sector resources than the same dollar targeted to an MFI trying
+to reach the poor.
+
+Before examining how a philanthropist or donor might choose when faced
+with these tradeoffs and whether it might choose to direct its resources
+via subsidies, grants or loans, it will be worthwhile to briefly pause
+to clarify a few terms. There is a great deal of debate and sometimes
+confusion in the policy literature over the role of subsidies. History,
+theory and evidence indicate clearly that subsidies often do more harm
+than good. A badly designed subsidy leads to a soft budget constraint
+problem which creates dependence and weakens rather than strengthens MFI
+incentives to look after loan portfolio quality. But in models such as
+this where problems of asymmetric information and limited liability
+create market failures, a carefully chosen subsidy can create markets
+where they did not previously exist and crowd in resources in ways that
+may raise rather than lower total surplus.
+
+There may therefore be `smart' ways to deliver subsidies and a primary
+aim of this framework is to help identify where such `smart subsidies'
+might be possible. Consider for example how optimal contracts could be
+adjusted if an MFI stepped in to subsidize fixed costs. So long as the
+subsidy is delivered in a way that leads parties to recontract to
+maintain incentives then outside investment, MFI outreach and borrower
+welfare could well be enhanced. To fix ideas, consider the case of a
+donor that had \$500 funds to partially subsidize the fixed costs of
+just one MFI, reducing these from \(F = 1000\) to \(F^{'} = 500.\) Which
+MFI should the philanthropist target for `maximum impact?'
+
+In debating this issue it is important to draw a distinction between
+levels and changes. The panels in figure 4 indicate levels and clearly
+show that (in the absence of subsidies) an MFI with \$1000 of capital
+\(K\) focusing on asset-rich borrowers can reach more borrowers
+\((N_{A})\) and generate more total net surplus
+(\(G_{A} = pX - \gamma I - m_{A} - F/N_{A})\) than another MFI with the
+same \$1000 of capital \(K\) focusing on asset-poor borrowers.
+
+This might seem to suggest that if a philanthropist had another \$500 to
+allocate, they might want to deliver the subsidy to an MFI that targets
+the relatively more affluent, since each dollar of subsidy can be used
+to `leverage' outside funds. But this ignores the fact that the \$500
+can also `leverage' capital in a different way. Suppose that in a poor
+community there are local investors with local intermediary capital
+\(K\) who, given existing fixed costs, information problems and the
+average net worth of borrowers in this neighborhood, have not found it
+profitable to pool these resources to form an MFI, but that with a \$500
+subsidy to fixed costs these investors could earn enough to want to
+enter business. In this case the \$500 subsidy would have 'leveraged' in
+local capital that brought into existence an MFI that can serve
+\(N_{0}\) borrowers, where no borrowers were previously attended.
+
+The panels in Figures 5 and 6 illustrate the possibilities using our
+parameterized example. The panels in figure 5 reproduce those in figure
+4 (lines in red), but now also draw in blue dotted lines that represent
+outcomes from an alternative scenario where each of the MFIs (or
+potential MFIs arranged according to the asset levels \(A\) of the
+borrowers they attend) would respond to a subsidy that lowered its fixed
+costs from 1000 to 500. In analyzing the effects of these interventions
+it will be useful to classify MFIs and the neighborhoods \(A\) in which
+they reside into `impact groups' according to the type of transformation
+they undergo as a consequence of an intervention:
+
+\(\begin{matrix}
+\mathrm{\text{Impact}}\mspace{6mu}\mathrm{\text{Group}} & \mathrm{\text{Definition}} & \mathrm{\text{Description}} \\
+A & \mathrm{\text{Group}}\mspace{6mu} I\mspace{6mu} \rightarrow \mathrm{\text{Group}}\mspace{6mu}\mathrm{\text{II}} & \begin{matrix}
+\mathrm{\text{New}}\mspace{6mu}\mathrm{\text{MFIs}}\mspace{6mu}\mathrm{\text{emerge}}\mspace{6mu}\mathrm{\text{where}}\mspace{6mu} \\
+\mathrm{\text{none}}\mspace{6mu}\mathrm{\text{previously}}\mspace{6mu}\mathrm{\text{existed}}.\mspace{6mu} \\
+\end{matrix} \\
+B & \mathrm{\text{Group}}\mspace{6mu}\mathrm{\text{II}}\mspace{6mu} \rightarrow \mathrm{\text{Group}}\mspace{6mu}\mathrm{\text{II}} & \begin{matrix}
+\mathrm{\text{Supports}}\mspace{6mu}\mathrm{\text{existing}}\mspace{6mu}\mathrm{\text{MFIs}},\mspace{6mu} \\
+\mathrm{\text{no}}\mspace{6mu}\mathrm{\text{new}}\mspace{6mu}\mathrm{\text{leverage}}. \\
+\end{matrix} \\
+C & \mathrm{\text{Group}}\mspace{6mu}\mathrm{\text{II}}\mspace{6mu} \rightarrow \mathrm{\text{Group}}\mspace{6mu}\mathrm{\text{III}} & \begin{matrix}
+\mathrm{\text{Transforms}}\mspace{6mu}\mathrm{\text{non}} - \mathrm{\text{leveraged}}\mspace{6mu} \\
+\mathrm{\text{into}}\mspace{6mu}\mathrm{\text{leveraged}}\mspace{6mu}\mathrm{\text{MFI}}. \\
+\end{matrix} \\
+D & \mathrm{\text{Group}}\mspace{6mu}\mathrm{\text{III}} \rightarrow \mathrm{\text{Group}}\mspace{6mu}\mathrm{\text{III}}\mspace{6mu}\mathrm{\text{or}}\mspace{6mu}\mathrm{\text{IV}} & \begin{matrix}
+\mathrm{\text{Increased}}\mspace{6mu}\mathrm{\text{leverage}}\mspace{6mu}\mathrm{\text{in}}\mspace{6mu} \\
+\mathrm{\text{already}}\mspace{6mu}\mathrm{\text{leveraged}}\mspace{6mu}\mathrm{\text{MFI}}. \\
+\end{matrix} \\
+\end{matrix}\)
+
+As can be seen a subsidy delivered to every neighborhood would shifts
+\(A_{\text{LO}}\) to the left, with the effect of creating impact group
+A by bringing into existence new MFIs to serve asset-poor neighborhoods
+where none existed before. It also lowers \(A_{\text{LEV}}\), allowing
+previously non-leveraged MFIs in (Impact Group C) to now access the
+private debt markets for the first time. Through subsidies (in the form
+or outright grants, subsidized loans, loan guarantees, etc) donors can
+bring new MFIs into existence, they can help transform existing
+non-leveraged MFIs into leveraged intermediaries that are now better
+able to raise funds from private markets. Finally they can help increase
+leverage in MFIs that can already raise private debt.
+
+The question remains how should donors decide to target their scarce
+funds across differnt MFIs and Impact groups? The incremental impact of
+these subsidies can be seen in figures 5 and 6. Figure five shows
+variable levels before and after the intervention, while figure six
+looks at this difference, and decomposes it into component parts. The
+top panel of figure 6 shows \(\Delta G_{A}\), the marginal impact of the
+subsidy on the net returns of a single borrower in each neighborhood,
+where \(G_{A} = pX - \gamma I - m_{A} - F/N_{A}\) and
+\(\Delta G_{A} = G_{A}^{'} - G_{A}.\) The next panel shows the number of
+new clients created in each neighborhood \((N_{A}^{'} - N_{A})\) and the
+third panel shows the total gain from the intervention
+\(G_{A}^{'} \cdot N_{A}^{'} - G_{A} \cdot N_{A}\), in each segment. This
+can in turn be decomposed into gains to existing clients, given by the
+number of existing borrowers in that segment \(N_{A}\) times the change
+in net return (\(G_{A}^{'} - G_{A}\)) per borrower, and gains to new
+clients, given by the change in number of clients
+(\(N_{A}^{'} - N_{A}\)) times the net return to each of these new
+clients \(G_{A}^{'}\) or:
+
+\[{G_{A}^{'} \cdot N_{A}^{'} - G_{A} \cdot N_{A}
+}{= N_{A} \cdot (G_{A}^{'} - G_{A}) + G_{A}^{'} \cdot (N_{A}^{'} - N_{A})}\]
+
+The panels shows that the impact of a subsidy on a representative
+borrower in each MFI is not at all uniform across neighborhoods and
+impact groups. Even though the new MFIs created in the lower Group A
+segment of the market are not able to leverage funds from outside
+sources, and they could not survive without the subsidy, the donor's
+funds have `crowded-in' \emph{local} intermediary capital, and by doing
+so have helped borrowers with socially profitable projects to become
+entrepreneurs. As can be seen many more new clients were created by
+targeting this subsidy to Impact Group A neighborhoods than to Impact
+Group B and C and many (but not all) Group D neighborhoods. If a donor's
+main objective is to brag about the number of new clients its
+intervention has helped to create then donors should focus their efforts
+on MFIs in poor neighborhoods. The number of new clients in
+neighborhoods in Group B hardly increases at all, because these MFIs do
+not achieve leveraged. The subsidy allows the MFI to increase the pool
+of funds available for lending by 500, allowing five new borrowers to be
+reached with a \(I = 100\) loan each. The impact is larger in all other
+cases because the intervention leverages in additional sources of
+financing to expand scale.
+
+Any proper analysis of impacts should however not just count new
+borrowers but also consider the impact of the intervention on individual
+borrowers' incomes. As the bottom panel of figure six indicates the per
+borrower impact group A rises rapidly with the borrowers' initial asset
+holdings\(A\). This is because the poorest amongst this group of all new
+borrowers will have most of their expected project returns eaten up by
+the very high monitoring costs needed to bring them into the market. The
+return left to the borrower therefore rises as monitoring costs drop
+linearly with higher \(A\).
+
+Focusing on the next impact group B (i.e. borrowers served by MFIs that
+began as un-leveraged Group II neighborhoods and remain unleveraged
+after the intervention) we find by looking at the lower panel that most
+of the gains come from extending a small gain to a an existing group of
+borrowers, rather than from new borrowers. That is because these are
+borrowers who already had access to capital, and since no leverage is
+achieved, scale is increased only very modestly. Each of these borrowers
+is benefited by the fact that the average fixed cost per loan is reduced
+by \(500/N_{0}( = 5)\) per borrower plus an additional amount of savings
+from the need for a bit less monitoring at each level of \(A\). In
+Impact Group C on the other hand the number of borrowers starts to rise
+more rapidly with \(A\) because the multiplicative impact of leverage.
+As drawn, and for these parameters, Group C is not a very large number
+of borrowers.
+
+The analysis of group D is interesting. This impact group consists of
+MFI that already achieved leverage, but with the aid of a subsidy are
+now able leverage further. The multiplier effect of the subsidy via
+leverage shows up primarily as an exponentially rising increase in the
+number of new clients. The impact per client is however declining with
+\(\text{A.}\) This is because were already in very highly leveraged
+institutions where average fixed costs per borrower were low and
+borrowers were already not very heavily monitored. Increased leverage
+therefore shaves relatively little off the already low cost of reaching
+these borrowers. As drawn however this dwindling impact is being
+multiplied by a fast rising population of new borrowers to yield an
+overall rising total impact of the subsidy as one targets more affluent
+neighborhoods.
+
+The graph on the lower panel of figure 6 also draws in a horizontal line
+at 500. If we were being strict utilitarians and measuring benefits as
+unweighted dollar value of total gains by neighborhood, we would
+conclude that expected benefits to society of the intervention do not
+compensate for the 500 subsidy cost for the very poorest borrowers. Of
+course this will not typically be the welfare criterion a donor might
+choose to pick since a donor is more likely to place higher weight on
+gains created in poorer households.
+
+Note that the free market outcome in the absence of philanthropists and
+their subsidies (including subsidized investments) is constrained
+efficient. That is, given the initial distribution of assets, structure
+of the economy including information asymmetries, and the assumption of
+voluntary exchange, there are no pareto-improving redistributions.
+Entrepreneurs cannot commit to repaying others in society for loans or
+transfers that can raise total output, because they cannot commit to
+making such repayments without undermining their own incentives to
+maintain the required level of effort. When however a new Bill Gates
+emerges to become a philanthropist or a donor however, total output can
+be increased because he does not demand full repayment (and indeed the
+transfer would be Pareto-improving since the subsidized borrower gains
+and Bill Gates is made no worse off since the contribution was
+voluntary).
+
+\hypertarget{profits-ownership-and-incentives}{%
+\subsection{1.4. Profits, ownership and incentives
+}\label{profits-ownership-and-incentives}}
+
+\hypertarget{this-section-very-rough}{%
+\subsection{(this section very rough)}\label{this-section-very-rough}}
+
+So far we have assumed the MFI behaves so as to maximize outreach and
+with that lower costs and increase benefits to pass on all the gains in
+surplus to the average borrower. This would be consistent with the
+behavior of a non-profit that cannot distribute profits and whose
+incentives are aligned to maximize borrower welfare because of the
+`social mission' orientation of its principal shareholders. The MFI is
+able to sustain itself over time but the rate of return on equity is γ,
+the same rate return as investments in other areas of the economy.
+
+An intermediary with a profit motive will seek to earn an expected rate
+of return on equity in excess of γ.
+
+\(p\frac{m}{\Delta} = \beta I_{m} + m + \frac{F}{N}\)
+
+We can interpret β as the expected return on equity:
+
+The ROE is γ when intermediary's IC constraint binds. If however
+intermediary capital is scarce, they will be able to earn a rent
+β\textgreater{}γ. This will be associated with a lower
+\emph{I\textsubscript{m }}(i.e. higher leverage). Appendix 2 explores
+this scenario in further detail\ldots{}
+
+\hypertarget{extensions}{%
+\subsection{1.5. Extensions}\label{extensions}}
+
+As in all models we have made simplifying assumptions to highlight
+important mechanisms, but these simplifications may at times bias the
+conclusions. A case in point is the assumption we have made that within
+each neighborhood resides an unlimited pool of identical entrepreneurs
+each with a high social return project (i.e. one that generates 200 for
+success with probability 0.9 when the borrower is diligent). This
+assumption tilted the conclusion of our analysis to favor subsidies and
+social investment toward higher-leveraged MFIs because under these
+assumptions these MFIs could pull in a large number of new borrowers. A
+more realistic assumption is that the distribution of returns across
+borrowers is heterogeneous, and that the marginal quality of the
+entrepreneur's project declines as the MFI expands scale in a particular
+neighborhood.
+
+Under this new set of assumptions the social investors' tradeoffs are
+likely to be rather different. Suppose for example that instead of all
+borrowers having a project with a certain return of \(X = 200\) under
+`success' this return where itself a random number drawn from a
+distribution. This distribution is assumed to be identical across
+neighborhoods and lenders in each neighborhood can observe \(X\) prior
+to giving a loan. It is easy to see that under the private market
+solution with no subsidies, all else equal, clients with lower \(X\)
+will receive more heavily monitored loans, and lenders will extend scale
+by moving from higher \(X\) borrowers to lower \(X\) borrowers to
+maximize total surplus per neighborhood. It should also be clear
+therefore that in a higher \(A\)neighborhood the last borrower to be
+reached has a lower \(X\) compared to a poorer neighborhood where there
+is less leverage. Under these circumstances the tradeoffs faced by a
+donor considering where to place a subsidy are now different. They are
+now more likely to tilt their decision toward poorer neighborhoods
+because that is where they will find borrowers with higher expected
+social marginal returns.
+
+\hypertarget{conclusion}{%
+\section{2. Conclusion}\label{conclusion}}
+
+The act of making an investment in a microfinance institution typically
+changes the incentives for the institution's owners and managers. The
+investors now take on risk that had previously been borne more heavily
+by the microfinance institutions. The institutions and their managers
+now face fewer (or different) consequences of their actions. This shift
+in who bears the risk for successes and failures can seriously diminish
+incentives for diligence on the part of institutions and their
+staff---such that a past history of successes may be a poor predictor of
+future performance.
+
+Drawing on the discussion of moral hazard above, we created a landscape
+of outcomes. In a free market system, without social investors, we
+expect that the landscape of finance for the poor would be divided into
+four broad situations.
+
+1.  \emph{The highly-leveraged.} The first involves institutions lending
+to better-off borrowers that have collateral---and where courts function
+effectively to seize assets. Here, microfinance should be maximally
+leveraged since outside investors can invest with limited concern about
+the diligence of the institution's staff. Loans do not have to be
+monitored in the same way that un-collateralized loans do. In the worst
+case, if customers default on their obligations, collateral will be
+there as a back-up. More re-assuringly, the worst case is unlikely to
+materialize since the fear of losing collateral should give customers
+adequate incentives to repay loans. Investors will still worry about
+currency risk, political risk, or macro-economic/environmental risk, but
+investors can feel confident that the fundamental investment should be
+unaffected by the institution's management structure, ownership rights,
+or degree of leverage.
+
+2.  \emph{The moderately-leveraged.} A second group of institutions
+serves borrowers with less collateral than the first group. The
+institution has to monitor and take other special efforts in order to
+obtain ensure loan repayment. Given moral hazard, the more monitoring
+that is required, the more the institution has to have incentives to
+monitor. Here, the institution's owners have to be exposed to some of
+the risk associated with the failure to monitor sufficiently. If they
+didn't, potential investors would hesitate to invest. The microfinance
+institution can thus achieve some leverage, but not as much as would be
+possible when all loans are fully collateralized.
+
+3.  \emph{The un-leveraged.} A third group of institutions serves
+borrowers with even less collateral. Incentives are such that no
+external leverage is possible at all. The institution is sustainable at
+its existing scale. The institution mobilizes resources from its own
+customers and proceeds on that basis---but commercial investors fail to
+invest.
+
+4.  \emph{The un-banked.} The fourth group of institutions are really
+not institutions at all. They would fail to exist in a free market
+system. Monitoring costs are so high that institutions would lose money
+servicing customers. The customers may have worthy projects, but they
+lack basic assets and are perceived to be so risky that they remain
+un-banked. The potential customers would only be served if subsidies
+emerged to launch the institutions.
+
+We argue that there are two kinds of leverage that matter, and that this
+recognition should push social investors either to focus on the
+lower-end of markets that serve the poor or, for quite different
+reasons, to focus on the higher-end. The first kind of leverage involves
+bringing new pro-poor institutions into being but does not draw in
+commercial capital. These are the latent institutions identified in the
+fourth category above. Once in existence, the institutions can tap the
+capital of their customers, and perhaps of others in the region, but
+they are unlikely to be able to tap outside capital. By helping to bring
+these institutions into existence, social investors can help put the
+local capital to use and, in that way, multiply the power of their gift.
+
+The second kind of leverage involves social investments that can ``crowd
+in'' commercial capital to a maximal extent and the focus here is the
+second category above. The first category of institutions, those that
+are already highly leveraged in free markets, need little boost to reach
+scale.
+
+There is a middle ground in which little leverage is likely, captured by
+the third category above, where institutions already exist in the free
+market but they are not well-positioned to access commercial capital.
+Social investments in the middle ground will have far less of a
+multiplier effect than investments directed either up-market or
+down-market. These institutions serve their customers well, and they
+manage to tap their customers' deposits to maximize scale. But the
+institutions are poorly-positioned to expand rapidly because of the
+inherent riskiness of their portfolios and costs of their business, and,
+if rapid expansion is the goal, social investors should look elsewhere.
+
+Two points should be emphasized. First, social investment allocations
+should also depend on the weights that investors attach to aiding the
+various populations under consideration. Those weights may temper the
+results here but will not affect the basic tradeoffs.
+
+Second, we have assumed, without stressing it, that social investors are
+not insiders in the institutions receiving funds. Investors have no
+special knowledge and no special clout. In the language of corporate
+finance, they constitute ``uninformed'' capital. The investors may be
+Silicon Valley entrepreneurs, European religious groups, Japanese aid
+agencies---each captured by the desire to maximize the social impact of
+their resources, but retaining some distance from the ultimate
+beneficiaries.
+
+But imagine instead that investors have good information about the
+diligence and management of the institution receiving the investment,
+and that they have clout to affect the institutions' direction. If
+investors are uninformed, they will have little means to instill good
+incentives or mitigate moral hazard. If they are informed, though,
+matters can be improved. In a world of limited information, uninformed
+investors dominate the market (and they are vital in reaching scale),
+but informed investors can have particular influence. The power of
+informed social investors comes when they are able to combine capital
+with knowledge, and in that way are able to attract ``uninformed''
+investors. Incorporating this element into the framework will not change
+the basic conclusions above, but it could open up new practical
+strategies.
+
+Little analytical has been written on social investment, or for that
+matter on the economic incentives and constraints that guide
+philanthropy. We have looked instead, partly out of necessity, to a very
+different literature that shares important challenges and questions: the
+economics of corporate finance. In building analytical links and
+developing a simple framework for discussing new ideas, we hope to spur
+others to take the analytical challenges seriously.
+
+\hypertarget{appendix-1}{%
+\section{\texorpdfstring{\\
+Appendix 1}{ Appendix 1}}\label{appendix-1}}
+
+Closed form solutions for \emph{N} and \emph{n} are obtained from the
+system of equations
+
+\((m,N) = A\)
+
+\(N = \frac{(K - F)}{I^{m}}\)
+
+Substitute
+\(I_{m} = \frac{1}{\gamma}\left\lbrack \frac{\text{qm}}{\Delta} - \frac{F}{N} \right\rbrack\)from
+into and the result into to solve for \emph{m}:
+
+\[{N = \frac{(K - F)}{\frac{1}{\gamma}\left\lbrack \frac{\text{qm}}{\Delta} - \frac{F}{N} \right\rbrack}
+}{N = \gamma\Delta N\frac{(K - F)}{\left\lbrack \text{Nqm} - \Delta F \right\rbrack}
+}{m = \frac{1}{N}\frac{\Delta}{q}\left\lbrack \gamma K + (1 - \gamma)F \right\rbrack}\]
+
+Substituting this back into to and re-arranging yields:
+
+\[{(0) + \frac{F}{N} + m\left\lbrack 1 - \frac{\text{αp}}{\Delta} \right\rbrack = A
+}{(0) + \frac{F}{N} + \left\lbrack \frac{1}{N}\frac{\Delta}{q}\left\lbrack \gamma K + (1 - \gamma)F \right\rbrack \right\rbrack\left\lbrack 1 - \frac{\text{αp}}{\Delta} \right\rbrack = A
+}{F + \left\lbrack \frac{\Delta}{q}\left\lbrack \gamma K + (1 - \gamma)F \right\rbrack \right\rbrack\left\lbrack 1 - \frac{\text{αp}}{\Delta} \right\rbrack = N\left\lbrack A - (0) \right\rbrack}\]
+
+\[\boxed{N = \frac{\Gamma}{\left\lbrack (0) - A \right\rbrack}}\]
+
+Where
+\(\Gamma = \frac{((1 - \alpha)p - q)}{q}\lbrack\gamma K - (1 - \gamma)F\rbrack - F\).
+
+The closed form expressions for \emph{m} is then given by:
+
+\[\boxed{\mspace{6mu} m = \left\lbrack (0) - A \right\rbrack \cdot \frac{\Delta}{q}\frac{\left\lbrack \beta K + (1 - \beta)F \right\rbrack}{\Gamma}}\]
+
+Hence in equilibrium \emph{m} rises proportional to the gap between
+\emph{{A}}(0) and \emph{A} -- poorer borrowers need more monitoring in
+equilibrium. The number of borrowers reached by an MFI varies inversely
+with the gap between \emph{{A}}(0) and \emph{A}
+
+APPENDIX 2
+
+(`Selfish equity' extension)
+
+\textbf{2.A Selfish equity, no heterogeneity in each neighborhood}
+
+In the current setup the rate of return on equity β was assumed to
+equilibrate to γ, the same rate of return outside uninformed investors
+expect on their investments. This assumption could be justified by
+assuming that MFIs are run by social investors willing to accept such
+return. This appendix examines the alternative scenario where it is
+assume that the overall amount of `informed equity' (i.e. capital held
+by individuals capable of managing a financial institution) in the
+economy is limited, but that this informed equity can move across
+`neighborhoods' in search of the highest return.
+
+In order to isolate effects we make the additional simplifying
+assumption that each neighborhood has the same finite number
+\({\overline{N}}_{j}\)of would-be entrepreneurs with access to the same
+lump sum investment project which gives gross return \emph{X} when it
+succeeds and zero otherwise. In a world where investors are purely
+profit driven, the first equity investors would at first want to direct
+their scarce resources and talent to serving the wealthiest
+neighborhoods for the simple reason that there is more project surplus,
+and therefore economic rents to be made, where resources are not being
+used up in costly monitoring. Competition for wealthiest clients should
+drive down the rate of return in the wealthiest neighborhoods and lead
+to a spillover of investments into less wealthy neighborhoods such that
+in equilibrium the market rate of return on equity should be driven to
+an economy-wide equilibrium level β which is the same in all
+neighborhoods where clients are served.
+
+To see how this equilibrium is reached, we first we allow the expected
+rate of return in a given neighborhood to be set at arbitrary level β
+and later solve for an equilibrium where β that clears the market for
+\emph{K}.
+
+When there are fixed costs to setting up an institution one should
+really have to be worried about strategic behavior and timing. In the
+math below we have included fixed costs per borrower in most expressions
+to allow for the possibility of analyzing this at some later date, but
+many of the arguments really implicitly assume \emph{F}=0.
+
+The main result of interest is that the pursuit of higher profits
+changes the conditions of access and will in general lead to
+`over-monitoring' in the market. To see this note the rate of return on
+equity is:
+
+Or put only slightly differently, the expected earnings to the equity
+investor/monitor from an incentive-compatible contract must exactly
+equal the opportunity cost of those funds \emph{I\textsubscript{m}} in
+other equity investments:
+
+\(\beta I_{m} = \left\lbrack \frac{q}{\Delta}m - \frac{F}{N} \right\rbrack\)
+
+Since the rate of return β demanded by for-profit equity investors will
+in general exceed the rate of return γ that equity owners obtained in
+the earlier analyzed `most-generous social investor' case, borrowers
+(who were contributing as much collateral as they had in that earlier
+scenario) must now be more heavily monitored if incentives are to be
+kept in place for them to credibly commit to these higher levels of
+expected repayment. To see this formally note that the contract must now
+divide expected project claims \emph{pX} between sufficient expected
+payments for the uninformed investor (who puts up\(I - I_{m}\)) to
+participate, sufficient expected returns for the borrower to be
+diligent, and expected payments \(pR_{m} = \frac{p}{\Delta}m\) to the
+monitor/equity owner:
+
+\(pX = \gamma(I - I_{m}) + \left\lbrack \frac{pB(m)}{\Delta} - A \right\rbrack + \left\lbrack \frac{p}{\Delta}m \right\rbrack\)
+
+Re-arranging to solve for A as before we get:
+
+where\((m,\gamma)\) was the minimum collateral requirement in the
+`generous social investors' case where the rate of return on equity was
+assumed to be β=γ (i.e. equity investors accepted the same rate of
+return as uninformed investors).
+
+Substituting for \emph{I\textsubscript{m}} from above allows us to
+further re-arrange:
+
+Which is all a lengthy way to say
+\((m,\gamma) = (m,\gamma) + (\beta - \gamma)I_{m}\)
+
+**** COMMENT ***
+
+The following figure illustrates how the monitoring intensity must rise.
+The lower line is the minimum collateral requirement for the social
+investor case (i.e. β=γ=1.1), while the top line is the minimum
+collateral requirement is 20\% higher, or γ=1.32). A borrower with say
+\(A_{j} = 100\)would obtain a loan with (approximately) 7.5 units of
+required monitoring in the first place, while the same borrower would
+require 12.9 units of monitoring
+
+\includegraphics[width=3.81806in,height=2.375in]{media/image10.wmf}
+
+*** END COMMENT ***
+
+\textbf{`Closing' the model }
+
+Suppose that there are \emph{j} = \emph{1...J} neighborhoods with
+\({\overline{N}}_{j} = N\) potential entrepreneur/borrowers in each
+neighborhood, who differ only in terms of their collateralizable wealth
+\emph{A}\textsubscript{j}.
+
+Equity investor funds will flow to the wealthiest neighborhoods until
+all borrowers are served. Competition will however drive down the rate
+of return in this neighborhood making it attractive for funds to flow to
+the next richest neighborhood, and so on.
+
+The logic runs loosely like this. Suppose there were just two
+neighborhoods, one rich, one poor. Suppose K is in very scarce supply.
+It's obvious that these equity investors will setup a bank in the richer
+neighborhood since that is where they can leverage more outside
+investment, and hence earn a higher return on equity. These
+profit-seeking investor would like to be as highly leveraged as
+possible, but competition amongst them to attract rich borrowers will
+force them to be less highly leveraged
+
+Any remaining funds will flow to the next richest neighborhood until all
+borrowers are served, and so on, flowing to the next richest
+neighborhood each time. In the last neighborhood served
+
+Conceptually we can solve for demand for K in each neighborhood as
+follows. Take neighborhood \emph{A\textsubscript{j}} . From
+
+How does shape change if β\textgreater{}γ: If the MFI demands a higher
+return on equity β (perhaps because monitoring equity capital is scarce
+in the economy -- we can endogenize this rate of return by specifying a
+fixed quantity of monitoring equity in the economy) the higher share of
+project surplus devoted to equity payments shifts the thresholds and
+reduces access.
+
+\includegraphics[width=6.19792in,height=2.52083in]{media/image11.wmf}
+
+Access is reduced (not surprisingly since the MFI is taking more surplus
+off the table). Note that there is also now a higher level of monitoring
+at each level of \emph{A}. This is because if the MFI is to take more
+money off the table, the borrowers must have incentives to be able to
+commit to deliver it. Or put differently, with less money for them to
+take home when things succeed their incentive to be diligent would be
+diluted, unless monitoring can be stepped up.
+
+THERE ARE TWO EXPRESSIONS IN TWO UNKNOWS (m, N):
+
+\[N = \frac{K - F}{I_{m}}\]
+
+Substituting in
+\(I_{m} = \frac{1}{\beta}\left\lbrack \frac{p \cdot m}{\Delta} - m - \frac{F}{N} \right\rbrack\)
+these can be rewritten in terms of just N and m:
+
+Note that if β=γ the expression reduces to:
+
+\(m = \left\lbrack \frac{(p - q)}{(\alpha - 1)p + q} \right\rbrack\left\lbrack \left\lbrack {}_{0} - A \right\rbrack + \frac{F}{N} \right\rbrack\)
+
+AND
+
+\(\boxed{m = \left( \frac{\beta K + (1 - \beta)F}{N} \right)\left( \frac{p - q}{q} \right)}\)
+
+Solving for N
+
+\[{\beta K + (1 - \beta)F = N\left\lbrack \frac{\text{βq}}{(\alpha - 1)\beta p + \gamma q} \right\rbrack\left\lbrack \left\lbrack {}_{0} - A \right\rbrack + \frac{\gamma}{\beta}\frac{F}{N} \right\rbrack
+}{\left\lbrack \beta K + (1 - \beta)F \right\rbrack\left\lbrack \frac{(\alpha - 1)\beta p + \gamma q}{\text{βq}} \right\rbrack = N\left\lbrack {}_{0} - A \right\rbrack + \frac{\gamma}{\beta}F
+}{N = \frac{1}{\left\lbrack {}_{0} - A \right\rbrack}\left\lbrack \left\lbrack \beta K + (1 - \beta)F \right\rbrack\left\lbrack \frac{(\alpha - 1)\beta p + \gamma q}{\text{βq}} \right\rbrack - \frac{\gamma}{\beta}F \right\rbrack
+}\boxed{N = \frac{\Gamma(\beta,\gamma)}{\left\lbrack {}_{0} - A \right\rbrack}}\]
+
+From here I should be easy to show that, all else equal, an increase β
+lowers equilibrium N and raise equilibrium m.
+
+Borrower's participation constraint
+
+\(\text{pX} - \text{γI} - \left\lbrack \frac{\text{pm}}{\Delta} - \gamma I_{m} \right\rbrack \geq 0\)
+
+Which can b rewritten
+
+\[{\text{pX} - \text{γI} - \left\lbrack \frac{\text{pm}}{\Delta} - \gamma I_{m} \right\rbrack \geq 0
+}{\text{pX} - \text{γI} - \frac{\text{pm}}{\Delta} + \frac{\gamma}{\beta}\left\lbrack \frac{\text{pm}}{\Delta} - m - \frac{F}{N} \right\rbrack \geq 0
+}{\text{pX} - \text{γI} - m\left( \frac{\text{βp} - \text{γq}}{\beta\Delta} \right) - \frac{\gamma}{\beta}\frac{F}{N} \geq 0}\]
+
+When if β=γ the expression reduces to:
+\(= pX - \text{γI} - \frac{F}{N} - m\)
+
+\includegraphics[width=6.03125in,height=2.65625in]{media/image13.wmf}
+
+\hypertarget{section}{%
+\section{}\label{section}}
+
+\hypertarget{section-1}{%
+\section{\texorpdfstring{\\
+}{ }}\label{section-1}}
+
+\hypertarget{bibliography}{%
+\section{Bibliography}\label{bibliography}}
+
+Abrams, J. and D. von Stauffenberg (2007). Role Reversal: Are Public
+Development Institutions Crowding Out Private Investment in
+Microfinance? Microrate, MFI Insights, February 2007.
+http://www.microrate.com/pdf/rolereversal.pdf
+
+Armendariz de Aghion, B. and J. Morduch (2005). \emph{The Economics of
+Microfinance}, MIT Press.
+
+Barrés, Isabelle (2005) ``Bulletin Highlights-Supply of Funding,''
+\emph{Microbanking Bulletin}, August 2005, p.53.
+
+Becchetti, L. et al. (2005) , ``A matching of two promises: Microfinance
+and Social Responsibility'', Dipartimento di Economia e Istituzioni,
+Università degli Studi di Roma "Tor Vergata".
+
+Berlin, M. (1998). "That Thing Venture Capitalists Do." \emph{Business
+Review}, Federal Reserve Bank of Philadelphia: 15-26.
+
+Bardhan, Pranab, Samuel Bowles and Herbert Gintis (2000), ``Wealth
+Inequality, Wealth Constraints, and Economic Performance,'' in Atkinson
+and Bourguignon eds. \emph{Handbook of Economic Growth,} North-Holland.
+
+Chowdhry, B. et al. (2005), ``Pricing Microfinance Loans and Loan
+Guarantees using Biased Loan write-off Data'', Manuscript.
+
+CGAP (2004), ``Building Inclusive Financial Systems: Donor Guidelines on
+Good Practice in Microfinance''.
+http://cgap.org/docs/donorguidelines.pdf
+
+Conning, J. (1999) ``Outreach, Sustainability and leverage in monitored
+and peer-monitored lending,'' \emph{Journal of Development Economics},
+Vol. 60, 51-77.
+
+Conning, J. (2006). ``Monitoring by Delegates or by Peers? Joint
+Liability Loans under Moral Hazard,'' Hunter College, Department of
+Economics, working paper.
+\href{http://ideas.repec.org/p/htr/hcecon/407.html}{ideas.repec.org/p/htr/hcecon/407.html}
+
+Conning, J. and C. Udry (2007). ``Rural Financial Markets in Developing
+Countries.'' Chapter 56 of \emph{Handbook of Agricultural Economics},
+Vol. 3. R.E. Evenson, P. Pingali, and T. P. Schultz (ed.). Amsterdam:
+Elsevier.
+
+Cull, R. A. Demirgüç-Kunt, and J. Morduch (2008) ``Microfinance Meets
+the Market,'' \emph{Journal of Economic Perspectives}, forthcoming.
+
+Dewatripont, M. and J. Tirole (1994). \emph{The Prudential Regulation of
+Banks}. Cambridge, Mass., MIT Press.
+
+Dewatripont, M. and G. Roland (2000). "Soft Budget Constraints,
+Transition, and Financial Systems." \emph{Journal of Institutional and
+Theoretical Economics} 156(1): 245-60.
+
+Diamond, D. W. (1984). "Financial Intermediation and Delegated
+Monitoring." Review of Economic Studies 51(3): 393-414.
+
+Hansmann, Henry (1996), \emph{The Ownership of Enterprise. Cambridge},
+Harvard University Press.
+
+Heinen, Erik (2005) ``The MFI as a Borrower: Institutional
+Characteristics and MFI Performance,'' Microbanking Bulletin, August,
+p.33.
+
+Innes, R. D. (1990). "Limited Liability and Incentive Contracting with
+Ex-ante Action Choices." \emph{Journal of Economic Theory} 52(1): 45-67.
+
+Lauer, Kate. (2008). ``Transforming NGO MFIs: Critical Ownership Issues
+to Consider.'' \emph{CGAP Occasional Paper No. 13}.
+
+Ledgerwood, J. (1998). Microfinance Handbook : An institutional and
+financial perspective, World Bank Publications.
+
+Li, Wenli (1998) ``Government Loan, Guarantee, and Grant Programs: An
+Evaluation,'' \emph{Federal Reserve Bank of Richmond Economic Quarterly}
+84, no. 4.
+
+Marble, Melinda (1989), \emph{Social Investment and Private
+Foundations}, Council on Foundations, Washington, DC.
+
+Mody, A. and Patro, D. (1996), ``Methods of Loan Guarantee Valuation and
+Accounting,'' Manuscript.
+
+Shiller, R. J. 2008. The Subprime Solution: How Today's Global Financial
+Crisis Happened and what to Do about it. Princeton University Press.
+
+Tirole, Jean (2005), \emph{The Theory of Corporate Finance}. Princeton:
+Princeton University Press.
+
+Tirole, J. (2001). ``Corporate Governance,'' \emph{Econometrica} 69 (1):
+1-35.
+
+Townsend, R. M. (1979). "Optimal Contracts and Competitive Markets with
+Costly State Verification." \emph{Journal of Economic Theory} 21(2):
+265-93.
+
+Weinsberg, Jacob (2006). ``The Philanthropist's Handbook: How
+billionaires give their money away.'' \emph{Slate} (on-line). Posted
+Wednesday, Nov. 15, 2006, at 3:30 PM ET:
+http://www.slate.com/id/2153857/.
+
+  
+
+SOME FIGURES FROM THE SLIDE PRESENTATION:
+
+\textbf{`Profitability' versus non-commercial funding.} Profitability is
+measured by the financial sustainability ratio. The financial
+self-sufficiency ratio is adjusted financial revenue divided by the sum
+of adjusted financial expenses, adjusted net loan loss provision
+expenses, and adjusted operating expenses. It indicates the
+institution's ability to operate without ongoing subsidy, including soft
+loans and grants. The definition is from \emph{MicroBanking Bulletin}
+(2005), p. 57.
+
+\includegraphics[width=5.21389in,height=3.81806in]{media/image14.emf}
+
+\includegraphics[width=4.98958in,height=3.625in]{media/image15.wmf}
+
+\textbf{The composition of costs as a share of the average gross loan
+portfolio.} Data on costs are not disaggregated by activity, so the
+analysis includes only those institutions whose revenue from lending
+(interest, fees, and commissions) is greater than or equal to 80 percent
+of total revenues. In restricting ourselves to the subset of
+microfinance institutions that are most focused on lending, we have
+greater confidence in ascribing all of their costs to lending.
+
+\includegraphics[width=5.16667in,height=3.76042in]{media/image16.wmf}
+
+\textbf{Interest rates rise with costs.} The ``premium'' is the excess
+of the microlender's average interest rate charged to borrowers over the
+International Monetary Fund's inter-bank ``lending interest rate'' that
+banks in the given countries charge to prime customers (from IMF
+International Financial Statistics).
+
+TABLES FROM THE PAPER
+
+Table : Numerical Example
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\textbf{Variable or Parameter} & \textbf{Value} &
+\textbf{Description}\tabularnewline
+\midrule
+\endhead
+\emph{I} & 100 & Lump sum investment\tabularnewline
+\emph{X} & 200 & Successful Project outcome (zero for
+failure)\tabularnewline
+\emph{p} & 0.90 & Probability of Project Success when
+diligent\tabularnewline
+\emph{q} & 0.75 & Probability of Project Success when not
+diligent\tabularnewline
+\(\gamma\) & 1.20 & Lender's cost of funds (one plus interest
+rate)\tabularnewline
+\emph{F} & 1000 & Fixed cost to setup or operate an MFI\tabularnewline
+\emph{K-F} & 11000 & Initial capital of the MFI\tabularnewline
+\(B_{0}\) & 30 & Opportunity cost of diligence at zero
+monitoring\tabularnewline
+\(\alpha\) & 0.5 & Monitoring effectiveness parameter\tabularnewline
+\(B(m)\) & \(B_{0} - \alpha \cdot m\) & Monitoring
+technology\tabularnewline
+\(N_{0}\) & \(\frac{K - F}{I} = 100\) & Max number of borrowers reached
+(without leverage)\tabularnewline
+\(AC_{0}\) & \(\frac{F}{N_{0}} = 10\) & Average fixed cost per borrower
+(without leverage)\tabularnewline
+\bottomrule
+\end{longtable}
+
+Figure : How MFIs fund themselves
+
+\includegraphics[width=6.26597in,height=3.39097in]{media/image17.emf}
+
+\includegraphics[width=6.27083in,height=2.57847in]{media/image18.emf}
+
+\includegraphics[width=5.58333in,height=1.34375in]{media/image19.png}
+
+Figure : Collateral and monitoring
+
+\includegraphics[width=8.55387in,height=9.35517in]{media/image20.emf}
+
+\includegraphics[width=6.26042in,height=7.67222in]{media/image24.png}
+
+\includegraphics[width=6.27083in,height=5.05208in]{media/image25.png}
+
+\includegraphics[width=6.26597in,height=3.625in]{media/image26.png}
+
+\end{document}

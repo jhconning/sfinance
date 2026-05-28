@@ -40,6 +40,8 @@ jobs:
         run: npm install -g @marp-team/marp-cli
       - name: Generate Marp PDF
         run: marp slides.md -o _build/html/slides.pdf --allow-local-files --pdf
+      - name: Disable Jekyll
+        run: touch _build/html/.nojekyll
       
 
       - name: Upload artifact

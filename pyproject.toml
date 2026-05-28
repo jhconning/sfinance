@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "socialfinance"
+version = "0.1.0"
+description = "Applied micro-theory tools for paper on social finance research"
+authors = [{name = "Jonathan Conning", email = "jconning@hunter.cuny.edu"}]
+dependencies = [
+    "numpy",
+    "matplotlib", 
+    "ipywidgets",
+    "IPython",
+]
+requires-python = ">=3.8"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["socialfinance*"]
