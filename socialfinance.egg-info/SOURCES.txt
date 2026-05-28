@@ -1,9 +1,0 @@
-README.md
-pyproject.toml
-socialfinance/__init__.py
-socialfinance/socialfinance.py
-socialfinance.egg-info/PKG-INFO
-socialfinance.egg-info/SOURCES.txt
-socialfinance.egg-info/dependency_links.txt
-socialfinance.egg-info/requires.txt
-socialfinance.egg-info/top_level.txt
