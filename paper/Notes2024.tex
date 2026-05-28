@@ -1,0 +1,272 @@
+%% Converted from older .docx file 02/23/22
+% Several remaining conversions to finish
+% ###DOING:0 Fix many citations
+% #####TODO:10 Fix many equation blocks converted with error
+% ##NOTE:20 Add figure 1 etc at https://social-finance.readthedocs.io/en/latest/  (specifically https://github.com/jhconning/social-finance/blob/master/notebooks/socfin.ipynb)
+
+\documentclass[letterpaper, 12pt]{article}  
+
+%% Language and font encodings
+\usepackage{amsmath}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage{longtable}
+\usepackage[toc,page]{appendix}
+\usepackage{enumitem}
+
+%% Sets page size and margins
+\usepackage[letterpaper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{graphicx}
+\usepackage{setspace}
+% switched from older bibtex/natbib to newer biblatex (w/ natbib compatibility so \cite{} syntax preserved)
+%\usepackage[round]{natbib}
+
+\usepackage[
+  natbib=true, 
+  backend=biber, 
+  style=authoryear,
+  uniquename=false,
+  doi=false,isbn=false,url=false]{biblatex}
+\bibliography{references.bib}
+\emergencystretch=1em
+\usepackage{amsthm}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{definition*}{Definition}
+\usepackage{chngcntr}
+\counterwithout{figure}{section}
+\usepackage{varioref}
+\usepackage[normalem]{ulem}
+\usepackage{authblk}
+
+\title{Notes: the theory of financial inclusion}
+
+
+\author[1]{Jonathan Conning}
+\author[2]{Jonathan Morduch}
+\affil[1]{Hunter College and The Graduate Center, CUNY}
+\affil[2]{New York University}
+
+
+\begin{document}
+
+\maketitle
+
+\abstract{We study economies where social investors pursue a mix of private and social returns from investments in a portfolio of new and established microfinance institutions. The analysis builds upon a workhorse model of modern corporate finance \citep[e.g.][]{tirole2006} with limited liability, multiple layers of moral hazard, and costly active monitoring to explain patterns of financial intermediation. We extend this framework to explore how motivated agents and social investors can expand outreach via strategically placed investments and monitoring activities. We characterize the equilibrium capital structure and loan contract terms of financial institutions that target different borrowing groups, differentiated primarily by their initial level of pledgeable wealth. Strategically placed subsidies and guarantees implicit in social investors’ equity and quasi-equity investments can expand financial intermediation, outreach, and impacts. }
+
+\newpage
+\tableofcontents
+\newpage
+\onehalfspacing
+
+\section{Notes}\label{introduction}
+
+To many, a good society is one that is inclusive in the sense that people have access to institutions and mechanisms necessary to secure basic needs and to live a full life (xxxx). Inclusion may entail access to schools, voting booths, and libraries, for example. In the economic sphere, the inclusiveness of certain markets is of special concern---such as markets for healthcare, food, electric power, and finance.
+
+The ease of access to the goods and services they provide may be valued intrinsically by society, possibly beyond the way that inclusion affects efficiency or utility. Ongoing access to these markets (and/or to other mechanisms that provide the goods and services) might be valued, for example, for how they help secure capabilities in the sense of Amartya Sen (cite) and thus be tied to notions of justice or freedom. 
+%They are ``enabling'' goods and services, mattering because they enable capabilities (perhaps being  necessary for securing certain capabilities if not sufficient.
+
+Financial inclusion, for example, promises to expand people's freedom and capacity to use money in ways that richer people often take for granted but that others cannot assume. This is delivered through access to basic economic tools---better ways to invest (cites), borrow (cites), save (cites), send money (cites), and reduce risk (cites). 
+
+Consider the conventional approach to poverty, for example, in which poverty is determined if income is less than a socially-determined ``poverty line.'' Poverty lines are often defined in terms of the ``cost of basic needs'' (cite) or similar conception. The approach begins with a basket of goods and services that are determined to be essential for at least a minimal level of well being. Implicitly, these are enablers of core capabilities such as being healthy, educated, and able to earn a living. The approach to poverty is then to ensure that people have the resources to purchase that basket of goods and services. 
+
+But this assumes that those goods and services are available---or available at a reasonable price with a reasonable level of quality and reliability. Modern economics, however, shows how this can be a bad assumption, particularly for households with less wealth. The most elemental insight of the economics of information is that there can be common situations, especially in financial markets, where people want to purchase a good or service at the market price---and, in a world of perfect information would be good customers---but are nonetheless denied that opportunity due to imperfect information (Stiglitz).
+This framing suggests that the notion of ``inclusion'' cannot be separated from the philosophical notion of poverty---and vice versa. 
+
+This raises a second issue related to market failure. Market failure is a notion that is defined in terms of deviation from first-best levels of efficiency. The idea is that the market is working if it provides all consumers the chance to buy when their personal benefits of purchasing exceed the market price. But when we move to philosophical considerations, it is possible that a greater level of access is desirable (beyond the efficient level), even when it means that for some households the personal benefits of purchasing are less than the cost of delivering the good or service. This is because personal benefit is valued in terms of net increases in utility, while society may value capability on independent ethical terms. Put a different way,  exclusion can also be consistent with well-functioning, efficient markets---because even efficient markets do not deliver an ethically-sufficient level the particular goods and services.
+
+We begin with the large literatures on financial markets and their failures. Market failure is the most common source of blame for lack of financial inclusion. Commitments to inclusion have long justified government interventions, especially subsidy and regulation, to widen access to markets. 
+
+Our contribution is to describe a wider economic landscape, and to consider financial inclusion which may be valued beyond direct impacts on people's utility or behavior. This puts a focus on scale---both in breadth and depth (where depth signifies serving people with greater need, the most under-served). In this way, concern is not restricted to textbook concepts in public economics like coordination failures, externalities, public goods, market failures, or the redistribution of income. 
+%Instead, access, valued in its own right, commands attention. 
+
+The focus on inclusion shifts attention to the role, existence, and scale of the varied organizations that shape economic landscapes, especially investors, businesses, nonprofit organizations, governments, and social investors. 
+
+The analysis draws together insights from corporate finance, microfinance, and social finance.
+
+
+
+Organizations. Holmstrom-Tirole
+
+
+%of inclusion builds on the understanding 
+Goes beyond the notion that fixing market failures can improve efficiency and equity (e.g., cites) by putting a social weight on access to particular services (or on the capabilities that those services permit). The notion of inclusion 
+%Concern with inclusion extends beyond concerns with efficiency by allowing 
+allows that an inefficiently large supply of the service could be socially optimal. Concern with inclusion also extends beyond concerns with equity in the sense that a social weight is placed on access to markets for its own sake, apart from the increase in utility for people who transact on the market. 
+
+The model helps make several points:
+\begin{enumerate}
+\item What is financial inclusion? It is not simply fixing market imperfections. It also captures the priority placed on the scale of key markets. The idea focuses on tradeoffs of scale and depth and impact. We put that together by starting with the organizations that provide finance. What are their constraints and how/when/where can they expand? Who does that leave out? How can policy (i.e., subsidy) be used most effectively and least effectively?
+\item Universal access is not optimal. In this sense, we break from those who might see finance as a right. (Yunus? cites) There are contexts where delivering financial services is so costly that people are better off just getting money directly rather than access to finance. This is because their net returns are too low. In our setting this is because costs of serving them are high due to high monitoring costs, which are passed on to customers in a competitive market. Subsidizing the monitoring costs is possible, but it doesn't translate into much gain for consumers. They do better by simply getting  the subsidies directly. 
+\item This suggests a limit to arguing for credit as a right. Or for capabilities as rights. One way to think about it is that people might prefer to voluntarily give up those rights in exchange for a payment. (This gives some precision, perhaps, to ideas described by Sen.)
+\item There's also a region at the high end, where the subsidy has no net benefit because people already have good access to finance at reasonable rates. There too it may be that simply giving people the money makes them better off. (Yes?)
+\item Subsidy can multiply impact -- in the middle but not at the very top or very bottom of the distribution of monitoring intensity. But zooming in closer, within the middle, there is action on the edges. on the lower end of the middle there's a socially-weighted gain from depth of outreach. On the upper end of the middle, there's wider reach due to leverage. In the middle of the middle, there's less leverage and less relative social gain. 
+\item We would have to add community-level fixed costs to the model (which is probably not worth it) to make a point about benefits of subsidizing the lender vs individuals. It's a collective action type argument -- you need everyone borrowing to overcome the fixed costs. This is an idea that we might leave for discussion, as an extension or observation.
+\item Subsidies to individuals can allow them to take smaller loans, which then require less monitoring.
+\item Money subsidizes monitoring. Monitoring is wasteful but necessary.
+\item An insight of microcredit is to reduce monitoring costs through bilateral contracts. But microcredit still requires monitoring. Still, we might be able to frame microcredit within the Holmstrom-Tirole structure. See Conning JDE here.
+\item Conning in JDE makes an important point that we can reinforce: ``Thus, contrary to frequently
+heard claims in policy forums, profitability is neither a necessary nor a sufficient
+condition for leverage.''
+\item Would be valuable to add data. Is there data on subsidy that was never published from Cull project? JM needs to go back and see -- and get permission from Bob to use analysis. It shows that subsidy per dollar is relatively flat but subsidy per person tilts toward higher end. Subsidy per person tilts toward men.
+\end{enumerate}
+
+\subsection{7/11/24 call}
+
+Tirole's corporate finance text chapter 9 has 2 extensions that might be nice to bring in. Focused on large bloc lenders. Relationship lending. 
+
+\textbf{Fostering competition:} Organizations are really crucial in intermediation, and the outside social investor can really facilitate that. We're assuming that intermediaries are not earning economic rent because they're competing for the attention of the outside investor. They put their own skin in the game. In competition, that rent gets eliminated. But it could be interesting to think about local monopolies. Then part of what the social investor does is to bring more competition into these areas. Could do that as an extension, later in the paper. 
+
+Intermediaries come in and compete for outside funds by putting more skin in the game. Need an economic rent to get incentives right. But if you put money in (skin in the game) you no longer need such big economic rent. That, in turn, means that more of the economic value of the relationship is captured by the borrower.
+
+(We had a version of that in the model, but we assumed it was competed away... Need to modeify our existing set-up.)
+
+\textbf{Learning by lending} If you take the model literally, it doesn't make sense from a static efficiency standpoint to go into the poorest neighborhoods. But over time it's possible that the lender gets more effective at monitoring. So might take a loss at start. This could be a thought to add, though not to model.
+
+\textbf{More on capabilities:}
+Our framework has the notion that people are all born the same in terms of their capacity to be productive, but they don't have equal entitlements to take advantage of that... 
+
+\textbf{A thought on our innovation:} It's surprising that Tirole model hasn't been used to consider social investors. Tirole provides hints or discussion in footnotes. When it comes to social issues, he went in a social direction with Benabou and that work has a different different flavor. Perhaps, though, we should take another look at \textit{Economics for the Common Good.} Perhaps, too, there is some connection within Stiglitz's new \textit{The Road to Freedom: Economics and the Good Society}, though that's mainly a critique of free markets.
+
+\textbf{Reading the literature:} are these contracts efficient or not. Maybe they're constrained efficient. In our case they are. But that still leaves the interesting policy question -- where to add a \$1 to release constraints and push things further out. Where do I get the most bang for the buck? Answering that requires thinking about financing and organizations because ultimately the money is being invested or given to an organization.
+
+
+
+\section{Old intro}
+The working modes of philanthropy and business are blurring in two ways. First, philanthropists are increasingly using methods borrowed from for-profit investors. The strategies of venture capitalists are being adapted by ``venture philanthropists'' seeking to fund socially-minded institutions with promising ideas at early stages of development. They hope that the ideas will form the basis of sustainable institutions capable of serving populations at wide scale. As a survey of philanthropy put it:
+
+\begin{quote}
+The modern philanthropist dislikes the term charity, preferring to speak about his social investments. His language is entrepreneurial, sprinkled with references to metrics, scalability, leverage, and venture philanthropy \citep{weisberg2006}.
+\end{quote}
+
+The changes are expanding to foundations with the increasing favor of program-related investments over grants (PRIs include loans, equity shares, recoverable grants, linked deposits, and guarantees); parallel changes are afoot within government agencies \citep{marble1989}.
+
+% DOING:10 maybe update Oikocredit to example past 2004
+
+Oikocredit, for example, a Dutch social investment organization, has since 1978 been making long-term loans to ``enterprises and institutions for the empowerment of poor people in developing countries .'' Their first ``social investment'' in microfinance, for example, was a \$150,000 loan for 5 years at 9\% interest to Alternativa, a non-governmental organization providing microcredit to street vendors and small-scale entrepreneurs in Lima, Peru. Between 1994 and the end of 2004, Oikocredit made a cumulative total of 285 loans or investment agreements to 161 institutions in 41 countries, totaling \$88 million. Their net profit, returned to shareholders as a dividend, was 2\%. The dividend allowed investors a modest return on capital, but they earned substantially less than alternative investments. Their relative loss is their implicit charitable contribution \citep{heinen2005}.
+
+The second turn is that many socially-minded institutions receiving funding also increasingly look like businesses. Museums have raised entry prices and run ambitious shops with mail-order catalogues. Non-profit schools have hiked  tuitions. Environmental groups buy and sell land. Community development programs work with banks to facilitate mortgages in low-income neighborhoods. Indeed, many of these institutions form commercially viable entities and compete in
+the marketplace on the strength of their balance sheets alone. Opportunity International, a US-based network of microfinance institutions, owns a for-profit insurance company. BRAC, the largest NGO in Bangladesh, owns a for-profit bank. Chicago's Shorebank, the largest community development bank in the United States, is a holding company composed of non-profit and for-profit entities. BASIX has adapted the Shorebank model to South India.
+
+% Probably irrelevant but OpenAI also started as non-profit.. SImilar structure? 
+% OpenAI the non-profit creates OpenAI LP, a new “capped-profit” company 
+% returns above the (100X !) cap go to the NP see https://openai.com/blog/openai-lp?ref=hackernoon.com
+% only board members w/o profit shares can vote on key issues.
+
+The microfinance sector is home to some of the best-known examples of the new hybrids, and is in many ways the leading edge. Muhammad Yunus, the 2006 Nobel Peace Prize winner and founder of the Grameen Bank, a financial institution for the poor of Bangladesh, created a ``social business'' funded by social investors.
+
+We tackle the logic and tensions inherent in social finance---the support, with philanthropic objectives, of nonprofits, social businesses
+like the Grameen Bank, and profit-maximizing businesses serving the poor. The principles behind the new world of philanthropy and social
+action have not been well-explored by economists. We develop a theory of ``social finance'' to parallel the modern theory of corporate finance.
+
+% Perhaps be a bit more generous in acknowledging existing research, perhaps by being more specific about what aspect has not been explored.
+
+Most generally, we assess the justification for the subsidy inherent in social investment. We go further to develop a framework that describes
+how subsidy can be deployed for optimal impact. A focus is on using funds to build institutions that can achieve scale and attract additional revenue sources and investments. Leverage is critical, and we describe two important kinds of leverage. One, having to do with mobilizing locally-held entrepreneurial capital, is often overlooked and is highlighted below.
+
+Our consideration of effective social investment begins with two ideas. The first is that effective giving can lead to multiplier effects. It can ``crowd in'' other resources by catalyzing the investments of others, increasing the recipient's ability to ``leverage'' its resources. Leverage (i.e., to be able to obtain funds to use in addition to an institution's own equity) is critical as it determines an institution's ability to reach wide scale and reduce average fixed costs. Effective social investment can be used to expand leverage and hence market coverage, holding constant other social concerns.
+
+The second consideration is that philanthropic giving can change the incentives for recipients to work hard (as can commercial lending).
+% We should expand to explain what we mean.
+
+In this framework, profitability is neither necessary nor sufficient for attracting commercial capital. Contrary to some popular claims, earning profits -- even high profits --will frequently not expand the leverage
+of microfinance to take those institutions to wide scale. The presence of a social investor can however tip the scales for private resources to
+pour in. Total output may be enhanced by supporting institutions that would not exist if profitability was the sole concern. Of course it is no great surprise that a subsidized investment can expand an activity or a sector, the claim however is that social investors and philanthropic
+capital can expand output and welfare by repairing and expanding markets.
+
+The framework has a specific implication for the most effective use of social investment. We describe arguments that push social investment
+either ``high'' or ``low'' when directed to poor communities. Specifically, we show that smart subsidy involves allocations that either go to institutions serving relatively well-off (but still poor) customers, where the potential for leverage is maximized, or to institutions serving the poorest customers. There is less ``bang for the buck'' in supporting a middle range of institutions that are self-sufficient with their own resources but for which leverage (and thus potential scale) is limited.
+
+\subsection{Delegation and layers of moral hazard}\label{two-layers-of-moral-hazard}
+
+The analysis focuses on social investment in microfinance institutions. The particular gap filled by social investors is created by the
+unwillingness of most commercial banks to serve the poor. One well-known difficulty for banks stems from moral hazard on the part of borrowers.
+In practice, though, moral hazard is mitigated by microfinance institutions through the development of technologies, contracts, and management practices that limit risk. All of this takes effort, but the high repayment rates achieved by leading practitioners are testimonies to impressive successes. The essential insight in mitigating moral hazard is that incentives are improved by exposing people to the consequences of their actions. In the microfinance context, the denial of new loans in the case of default (via ``progressive lending'') and the peer pressure associated with group lending can reduce moral hazard by adding serious repercussions for bad outcomes \citep{armendariz2010}.
+
+% text used Armendariz+Morducht 2005.. is that prefered over 2010 2nd edition?
+
+Given the success in controlling moral hazard, investors ought to be interested in funding microfinance institutions and expanding their
+scale. Investments should be pouring in, and they are starting, but most investments are made by social investors with explicit philanthropic
+objectives.
+
+While social investors are willing to forego the kind of financial returns that alternative investments could bring, they nonetheless work
+hard to preserve their capital. The result is that most money channeled through microfinance investment funds and via International Financial
+Institutions supports ``top-tier,'' mature, financially self-sufficient institutions \citep{stauffenberg2007}. The growing, not-yet-profitable institutions that are needed to expand the sector are targeted by less than one fifth of the funds in the MicroBanking Bulletin's survey of funds \citep[][53]{bruett2005}.
+
+% (Barres 2005:53) replaced by Bruett+Barres 2005 Microbanking bulletin.
+
+One of the chief difficulties for outside investors---whether driven by commercial or social ends--is a second layer of moral hazard. The basic moral hazard problem described above involves the microfinance institution and the customer. This second problem involves the investor and the microfinance institution. Once it is the investor's resources that are ultimately at risk (rather than just the microfinance institution's resources or the customers'), the incentives are reduced for the institution to remain diligent in managing finances, monitoring loans, and innovating because now part of the cost of failure can be passed onto outside investors. The incentives to properly screen potential customers weaken, as do the incentives to chase down delinquent borrowers.
+
+The risks are not trivial. Oikocredit, for example, as of late 2004 faced a portfolio at risk (90-day) of 7 percent on its \$67 million
+social investment portfolio \citep[][33]{heinen2005}. In a review of 104 loan contract disbursed before the end of 2002, the average repayment rate
+was about 91 percent. Seventy four percent of contracts were found to be repaid ``almost always on time,'' but ``15 percent require continuous
+monitoring to follow overdue payments closely, and another 11 percent can be classified as bad-debt cases that are persistent in their default. The latter cases come with high monitoring and legal costs and are likely to lead to (partial) loan loss in the end.'' The challenges among the African institutions are greater: ``Only 57 percent of MFIs in the African sample manage to pay ``on time,'' while more than one out of
+four are structurally delayed in payment of invoiced amounts \citep[][34-35]{heinen2005} .'' The worst performers tended to newly-started,
+medium-sized urban banks or NGOs in Africa or Asia \citep[][39]{heinen2005}.
+
+Without collateral fully backing many of the institution's financial portfolios, this kind of risk becomes a major concern for prudent
+investors. Recognizing moral hazard matters since, under moral hazard, potential asset-poor customers typically face credit rationing---even
+though they may have worthwhile investment projects. The projects are worthwhile in the sense that they generate enough income to allow borrowers to in principle pay back loans with interest, and an entrepreneur would profitably undertake the project with their own money if they had the necessary funds.  The trouble is that the borrowers cannot credibly pledge enough of that income to find funding for their projects. The same holds for worthy institutions that are rationed out of the capital market due to
+information problems. Much of the modern theory of financial intermediation has been built upon this particular insight (Diamond 1984; Tirole, 2006) but the application of this theory to understanding the role of public policy and social investors in shaping the emergent
+financial intermediation landscape remains considerably unexplored.
+
+We argue that commercial investors play important roles, but by virtue of their philanthropic objectives, social investors can help increase leverage, expand scale, and increase total output in a sector in ways that commercial investors by themselves often cannot.
+
+Specifically, we demonstrate cases where philanthropic-giving can in principle raise output, increasing an economy's overall productivity---and lead to GDP increases in addition to poverty reduction. The possibility arises because social investors, by
+definition, are willing to absorb costs in order to bring gains. This is, of course, their reason for existence. They can do more than shift resources: they can also help increase the total sum of resources available. The question then is: How can they most powerfully enact such
+``productivity-enhancing'' investments.\footnote{This language is from \citet{bardhan2000}.}
+
+Our consideration of effective social investment begins with two ideas. The first consideration is that philanthropic giving can expand the contract space by being willing to subsidize the `limited liability
+rents' that often stand in the way of more trades in the commercial loan market. Limited liability rents refer to the returns that must be left with borrowers, or the loan officers that monitor them so as to provide incentives to effort when limited liability constraints restrict the
+incentives that can be provided by threatening punishments for example
+by using legal mechanisms to seize collateral. When such rents plus the
+cost of loan monitoring become too large relative to expected project
+gains, lenders may walk away from making loans to individuals without
+collateral wealth, leaving socially valuable projects unfunded. A small
+subsidy in such contexts can a times be enough to turn a small private
+loans that might otherwise have been unprofitable now profitable. If
+enough of those small loans become profitable, a new microfinance
+institution might emerge where otherwise it might not have.
+
+The second consideration is that effective giving may lead to multiplier
+effects. It can ``crowd in'' other resources by catalyzing the
+investments of others, increasing the recipient's ability to
+``leverage'' its resources. Leverage (i.e. to be able to obtain funds to
+use in addition to an institution's own equity) is critical as it
+determines an institution's ability to reach wide scale, and wider scale
+can lower average fixed costs. Effective social investment aims to
+expand leverage, holding constant other social concerns.
+
+In this framework, profitability is neither necessary nor sufficient for
+attracting commercial capital. Merely earning profit will not generate
+the leverage to take institutions to wide scale. Moreover, productivity
+can be enhanced by supporting institutions that would not exist if
+profitability was the sole concern.
+
+The framework has a specific implication for the most effective use of
+social investment. We describe arguments that push social investment
+either ``high'' or ``low'' when directed to poor communities.
+Specifically, we show that smart subsidy involves allocations that
+either go to institutions serving relatively well-off (but still poor)
+customers, where the potential for leverage is maximized, or to
+institutions serving the poorest customers. There is less ``bang for the
+buck'' in supporting a middle range of institutions that are
+self-sufficient with their own resources but for which leverage (and
+thus potential scale) is limited.
+
+
+
+\newpage
+
+\printbibliography
+
+
+\end{document}
+
+
+
