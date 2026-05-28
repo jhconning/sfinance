@@ -205,7 +205,7 @@ class Bank(object):
         p,q, I, F = self.p, self.q, self.I, self.F
         plt.title('Debt to equity ratio:  ' + r'$\frac{I+F-I^m}{I^m}$')
         Im = np.minimum(I + F, self.minmon(A_) * (q / (p - q)) * (1 / beta))
-        de = np.divide(I + F - Im, Im, where=Im>0)
+        de = np.divide(I + F - Im, Im, out=np.zeros_like(Im), where=Im>0)
         plt.plot(A_, de)
         plt.xlabel('A -- pledgeable assets')
         plt.axvline(x=self.AM(self.mcross()), linestyle=':');

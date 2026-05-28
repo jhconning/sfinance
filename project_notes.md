@@ -6,85 +6,87 @@ This document outlines the organization and development workflows for the **Soci
 
 ## Workspace Structure
 
-The project has been consolidated into a single definitive git-tracked workspace located on the **Y drive** (to prevent sync conflicts with Dropbox):
+The project has been consolidated into a single definitive workspace located on the **Y drive** (to prevent sync conflicts with Google Drive / Dropbox):
 
-*   **Repository Location:** `y:\jpapers\siv\social-finance`
-*   **Active Remote (GitHub):** `https://github.com/jhconning/sfinance.git`
-*   **Overleaf Remote:** `https://git@git.overleaf.com/62167876d91ea90954bfaf60`
+*   **Repository Location (Code/Root):** `Y:\jpapers\siv\social-finance`
+*   **Repository Location (Paper/Subfolder):** `Y:\jpapers\siv\social-finance\paper`
 
 ### Directory Layout
 
-*   [paper/](file:///y:/jpapers/siv/social-finance/paper/) — Holds active modernized LaTeX source files and bibliography.
+*   [paper/](file:///Y:/jpapers/siv/social-finance/paper/) — **Independent Git Repository** holding active LaTeX source files and bibliography. Pushes directly to Overleaf.
     *   `main.tex` — Active paper body (integrated from Overleaf 2026).
     *   `Notes2024.tex` — Active draft notes and sections written by Jonathan Morduch.
     *   `references.bib` — Active references bibliography.
-    *   [paper/archive/old_local_2022/](file:///y:/jpapers/siv/social-finance/paper/archive/old_local_2022/) — Contains retired/archived 2022 draft variants to prevent confusion.
-*   [notebooks/](file:///y:/jpapers/siv/social-finance/notebooks/) — Active Jupyter Notebooks modeling the paper contracts (`2-socfin_m.ipynb` and `3-basicmodel.ipynb`).
-*   [socialfinance/](file:///y:/jpapers/siv/social-finance/socialfinance/) — Source Python package containing core contract equations and plotting methods (`socialfinance.py`).
-*   [log/](file:///y:/jpapers/siv/social-finance/log/) — Meeting logs and diaries (kept locally, ignored by GitHub).
-*   [archive/](file:///y:/jpapers/siv/social-finance/archive/) — Miscellaneous historical research notes (kept locally, ignored by GitHub).
-*   [data/](file:///y:/jpapers/siv/social-finance/data/) — Data files including global Findex microdata (kept locally, ignored by GitHub).
+    *   `changelog.md` — Date-time stamped paper log of changes marked with initials (e.g. "JC").
+    *   [paper/archive/old_local_2022/](file:///Y:/jpapers/siv/social-finance/paper/archive/old_local_2022/) — Contains retired/archived 2022 draft variants.
+*   [notebooks/](file:///Y:/jpapers/siv/social-finance/notebooks/) — Active Jupyter Notebooks modeling the paper contracts (`2-socfin_m.ipynb` and `3-basicmodel.ipynb`).
+*   [socialfinance/](file:///Y:/jpapers/siv/social-finance/socialfinance/) — Source Python package containing core contract equations and plotting methods (`socialfinance.py`).
+*   [log/](file:///Y:/jpapers/siv/social-finance/log/) — Meeting logs and diaries (kept locally, ignored by GitHub).
+*   [archive/](file:///Y:/jpapers/siv/social-finance/archive/) — Miscellaneous historical research notes (kept locally, ignored by GitHub).
+*   [data/](file:///Y:/jpapers/siv/social-finance/data/) — Data files including global Findex microdata (kept locally, ignored by GitHub).
 
 ---
 
-## Dual-Remote Git Workflow
+## Dual-Remote Git Workspace Architecture
 
-This project is configured with two git remotes: `origin` (GitHub) and `overleaf` (Overleaf). This allows you to work locally and push your Python code and site assets to GitHub while syncing your LaTeX edits instantly to Overleaf.
+To keep Python development clean and LaTeX compilation seamless, the workspace uses a **nested independent Git repository model**. The paper is git-ignored by the parent repository, allowing both repositories to coexist in the same folder structure without history or credential pollution.
 
 ```
-                  ┌───────────────┐
-                  │   Overleaf    │
-                  │ (LaTeX Paper) │
-                  └───────▲───────┘
-                          │ git push/pull overleaf
-                          │
-                  ┌───────▼───────┐
-                  │  Y:\ Workspace│
-                  └───────▲───────┘
-                          │
-                          │ git push/pull origin
-                  ┌───────▼───────┐
-                  │    GitHub     │
-                  │(Code & Website)
-                  └───────────────┘
+                   ┌────────────────┐
+                   │    Overleaf    │
+                   │ (LaTeX Paper)  │
+                   └────────▲───────┘
+                            │ cd paper; git push/pull origin
+                            │
+               ┌────────────▼────────────┐
+               │ Y:\ Workspace           │
+               │   ├── socialfinance/    │
+               │   ├── notebooks/        │
+               │   └── paper/ (.git)     │
+               └────────────▲────────────┘
+                            │
+                            │ git push/pull origin
+                   ┌────────▼────────┐
+                   │     GitHub      │
+                   │ (Code & Book)   │
+                   └─────────────────┘
 ```
 
-### 1. Synchronizing with Overleaf
+### 1. Synchronizing Paper Changes (Overleaf)
 
-Always pull any changes made on Overleaf before editing the paper text locally, and push back immediately after editing to compile in the Overleaf browser:
+All LaTeX paper sync operations must be performed **inside the `paper/` subdirectory**.
 
-*   **Pull latest changes from Overleaf:**
+*   **Pull latest co-author changes from Overleaf:**
     ```powershell
-    git pull overleaf master
+    cd Y:\jpapers\siv\social-finance\paper
+    git pull origin master
     ```
-*   **Push local changes back to Overleaf:**
+*   **Push local paper updates & changelog to Overleaf:**
     ```powershell
-    git push overleaf main:master
+    cd Y:\jpapers\siv\social-finance\paper
+    git add .
+    git commit -m "Describe your paper modifications"
+    git push origin master
     ```
 
-### 2. Synchronizing with GitHub
+### 2. Synchronizing Code & Notebooks (GitHub)
 
-Commit and push your changes to GitHub to back up your codebase, notebooks, and trigger the MyST website build:
+All code and website sync operations must be performed **inside the root directory**.
 
-*   **Push local changes to GitHub:**
+*   **Push local code changes to GitHub:**
     ```powershell
+    cd Y:\jpapers\siv\social-finance
+    git add .
+    git commit -m "Describe your code updates"
     git push origin main
     ```
 
 ---
 
-## Local Git Rules (.gitignore)
+## Local Git Rules & Ignore Hygiene
 
-To keep the remote GitHub repository clean and lightweight, the following local folders are **explicitly ignored** on GitHub but remain safely preserved on your `Y:\` drive:
-*   `archive/` (Historical PDF/Tex notes)
-*   `log/` (Meeting diaries)
-*   `data/Findex/` (Large Findex microdata files)
-*   `socialfinance.egg-info/`, `build/`, `dist/` (Python package build outputs)
-
-To clean up or ignore new local-only directories without losing files:
-```powershell
-git rm -r --cached folder_name/
-```
+*   The parent repository ignores the `paper/` directory entirely via the root `.gitignore`. This ensures that your private research paper draft is **never accidentally pushed to GitHub**.
+*   The nested `paper/` repository ignores local LaTeX compilation artifacts (`.aux`, `.log`, `.synctex.gz`) via `paper/.gitignore` to prevent polluting the Overleaf workspace.
 
 ---
 
