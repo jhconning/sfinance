@@ -1,97 +1,56 @@
-# Project Handoff: Social Finance Paper & Code Synchronization
+# Project Handoff: Syncing Capital Adequacy & Leverage across Notebooks
 
-This document serves as a complete handoff guide to initialize your next conversation, designed to help a new agent immediately grasp the consolidated structure, files, and workflows of the **Social Finance** project.
-
----
-
-## 1. Project Background
-*   **Goal:** Revisit, deeply revise, and synchronize a long-standing academic paper tentatively titled *"Social Finance"* (written by Jonathan Conning at Hunter College/CUNY and Jonathan Morduch at NYU) with its active Python simulation notebooks.
-*   **Core Economic Focus:** Applied micro-theory contracts modeling the funding structures of microfinance institutions (MFIs), comparing equity-only/unleveraged MFIs vs. leveraged MFIs under moral hazard, and examining the role of "smart subsidies" and social investors in expanding scale and output.
+This document serves as a focused handoff guide to initialize a new conversation thread, designed to help an incoming agent immediately grasp the mathematical logic, recent notebook changes, and the exact next steps for this project.
 
 ---
 
-## 2. Definitive Workspace Architecture
-The project has been consolidated from multiple historic directories (including Dropbox) into a single, definitive, git-tracked workspace located on the user's **Y drive** to prevent path issues and sync conflicts:
+## 1. Project Background & Mathematical Logic
+The goal of this project is to model and simulate microfinance lending contracts under moral hazard and scarce capital. 
+*   **The core dilemma:** Lenders must monitor borrowers to reduce private benefit from non-diligence. Richer borrowers (higher assets $A$) need less monitoring ($m$), whereas poorer borrowers need heavy monitoring.
+*   **The funding constraint:** Monitoring is only credible if the MFI puts up a sufficient equity stake $I^m(A)$ to maintain skin-in-the-game. Richer borrowers require less monitoring, allowing the MFI to hold less equity ($I^m < I$) and leverage cheaper outside debt. Poorer borrowers require so much monitoring that the MFI must fund them using 100% equity ($I^m = I$).
+*   **Regulatory Capital Adequacy Ratio (CAR):** To prevent leverage (outside debt to equity) from rising to infinity as monitoring drops to zero for very wealthy borrowers, we introduce a regulatory constraint:
+    $$I^m(A) = \max \left( k \cdot (I + f), \frac{q \cdot m(A)}{\beta \Delta} \right)$$
+    where $k = 0.10$ (10% CAR requirement). This strictly caps the maximum leverage ratio at:
+    $$\text{Max D/E} = \frac{1-k}{k} = 9.0$$
 
+---
+
+## 2. Active Workspace Directory
 📁 **Local Workspace Directory:** `Y:\jpapers\siv\social-finance`
 
-### Unified Directory Layout
-*   [socialfinance/](file:///Y:/jpapers/siv/social-finance/socialfinance/) — **Core Code Package**
-    *   `socialfinance.py` — Contains the core contract equations, parameters, borrower return profiles, and plotting classes (`class Bank(object)`).
+*   [socialfinance/](file:///Y:/jpapers/siv/social-finance/socialfinance/) — **Core Python Package**
+    *   `socialfinance.py` — Contains the `Bank` class holding contract equations, parameters, and plotting methods.
 *   [notebooks/](file:///Y:/jpapers/siv/social-finance/notebooks/) — **Active Jupyter Notebooks**
-    *   `2-socfin_m.ipynb` — The primary modeling and simulation notebook (updated Jan 22, 2026).
-    *   `3-basicmodel.ipynb` — Secondary active modeling notebook.
-    *   `1-results.md` — Active modeling analysis outputs.
-    *   *Archive folder:* Loose duplicates, old slide files, and exports have been neatly cleared out and retired to `notebooks/archive/` to keep this root pristine.
-*   [paper/](file:///Y:/jpapers/siv/social-finance/paper/) — **Active LaTeX Paper Source** (Local & Overleaf Sync Only)
-    *   `main.tex` — Core modernized LaTeX paper body (dated Jan 2026).
-    *   `Notes2024.tex` — Active draft notes and newer sections contributed by co-author Jonathan Morduch (dated Jan 22, 2026).
-    *   `references.bib` — Active references bibliography.
-    *   *Archive folder:* Pre-2022 loose drafts, Word files, and loose image files have been safely isolated in `paper/archive/` to avoid confusion.
-*   [log/](file:///Y:/jpapers/siv/social-finance/log/) — Meeting logs and diaries (kept local-only).
-*   [data/](file:///Y:/jpapers/siv/social-finance/data/) — Data folders including World Bank Findex datasets (kept local-only).
+    *   `2-socfin_m.ipynb` — The primary modeling and simulation notebook (fully cleaned, debugged, and synced).
+    *   `4-selfish-equity.ipynb` — Market-clearing equilibrium solver and interactive dashboard.
+    *   `5-endogenous-NK.ipynb` — Endogenous scale and funding structures.
 
 ---
 
-## 3. High-Efficiency Dual-Remote Workflow
-To keep development frictionless, the local repository connects to **two independent git remotes**.
-
-```
-                  ┌───────────────┐
-                  │   Overleaf    │
-                  │ (LaTeX Paper) │
-                  └───────▲───────┘
-                          │ git push/pull overleaf
-                          │
-                  ┌───────▼───────┐
-                  │  Y:\ Workspace│
-                  └───────▲───────┘
-                          │
-                          │ git push/pull origin
-                  ┌───────▼───────┐
-                  │    GitHub     │
-                  │(Code & Website)
-                  └───────────────┘
-```
-
-### Remote 1: GitHub (`origin`)
-Used exclusively for tracking python code, Jupyter notebooks, slide decks, and configuration files. 
-*   **Remote URL:** `https://github.com/jhconning/sfinance.git`
-*   **Gitignore Hygiene:** The `paper/` directory, `log/` folder, and large `data/` files are explicitly git-ignored on the `origin` remote to keep the repository extremely lightweight and clean.
-*   **Push Command:**
-    ```powershell
-    git pull origin main
-    git push origin main
-    ```
-
-### Remote 2: Overleaf (`overleaf`)
-Used exclusively for tracking LaTeX paper source files, sharing text changes cleanly with your co-author Jonathan Morduch.
-*   **Remote URL:** `https://git@git.overleaf.com/62167876d91ea90954bfaf60`
-*   **Credentials:** Authenticated securely via **Overleaf Git Token** (entered in place of standard password and cached securely in the Windows Credential Manager).
-*   **Gitignore Hygiene:** Local build auxiliary files (`.aux`, `.log`, `.synctex.gz`) are git-ignored locally via `paper/.gitignore` to prevent polluting the Overleaf workspace.
-*   **Push & Pull Commands:**
-    ```powershell
-    # Pull co-author's edits from Overleaf master branch:
-    git pull overleaf master
-
-    # Push your local main branch changes directly to Overleaf compiler:
-    git push overleaf main:master
-    ```
+## 3. Latest Accomplishments in Notebook 2
+We completed a series of deep modeling updates and code cleanups in [2-socfin_m.ipynb](file:///Y:/jpapers/siv/social-finance/notebooks/2-socfin_m.ipynb):
+1.  **Baseline MFI ROE:** Configured the baseline MFI return on equity to exactly `beta = 1.2` (Cell 7).
+2.  **Regulatory CAR 10% Integration:**
+    *   Updated the `Im(self, m)` method in `socialfinance.py` to enforce the 10% CAR floor on total assets funded ($I+f = 130$), successfully capping leverage at exactly `9.0`.
+    *   Added a horizontal dashed limit line at `9.0` in both D/E ratio plots (Cell 39 and Cell 68) and set the $y$-axis limit to $1.25 \times 9.0 = 11.25$ to give it clean visual headroom.
+3.  **Threshold Visualizations:**
+    *   Enriched `plotDE(self, beta)` to draw three distinct dotted vertical lines in the interior of the chart for the critical model boundaries: Exclusion limit ($A_{min}$), Leverage crossover ($A_{cross}$), and Direct credit limit ($A^m(0)$).
+    *   Shifted the $x$-axis start limit to `amin - 15` so that $A_{min}$ is beautifully visible in the interior rather than being cut off on the border.
+4.  **Parameter Discrepancy Resolved (f vs F):**
+    *   Synced all leverage and D/E equations to consistently use the loan-level administrative fixed cost `self.f = 30` instead of the neighborhood-level setup cost `self.F = 0`.
+5.  **Exhaustive Math Validation:**
+    *   Confirmed that the analytical equations for $m(A)$ and $m^e(A)$ are mathematically exact and fully compatible with $f > 0$; removed the `[CHECK THIS]` tag from the notebook.
+6.  **Pristine Restructuring:**
+    *   Relocated the credit capacity outreach $N(A)$ and borrower return landscape plots from notebook 4 into notebook 2 (before the subsidy section), providing detailed explanatory text about MFI capital capacity.
 
 ---
 
-## 4. Website and Slide Auto-Deployment
-Pushes targeting GitHub's `main` branch trigger a custom GitHub Action workflow ([.github/workflows/deploy.yml](file:///Y:/jpapers/siv/social-finance/.github/workflows/deploy.yml)):
-1.  Compiles the interactive notebooks into a MyST Markdown book.
-2.  Bypasses Jekyll processing via `.nojekyll` configuration.
-3.  Runs Marp CLI to compile slide presentations to PDF.
-4.  Deploys the static site to GitHub Pages:
-    👉 **[https://jhconning.github.io/sfinance/](https://jhconning.github.io/sfinance/)**
-
----
-
-## 5. Next Steps for the Next Conversation
-Provide these exact starting cues to the incoming agent in the new thread:
-1.  **Inspect Active Notebooks:** Open and run `Y:\jpapers\siv\social-finance\notebooks\2-socfin_m.ipynb` using the local Jupyter kernel to verify equation outputs.
-2.  **Compare Paper & Code:** Read the model definitions in the LaTeX source (`Y:\jpapers\siv\social-finance\paper\main.tex`) and cross-reference them with the classes/methods defined inside the core package (`Y:\jpapers\siv\social-finance\socialfinance\socialfinance.py`).
-3.  **Draft Revision Plan:** Integrate Jonathan Morduch's newer text inside `Notes2024.tex` directly into the paper's core general equilibrium equations.
+## 4. Next Task: Carrying the CAR to Notebook 4
+Our next immediate task is to explore and improve [4-selfish-equity.ipynb](file:///Y:/jpapers/siv/social-finance/notebooks/4-selfish-equity.ipynb) to carry over the 10% CAR logic there:
+1.  **Market-Clearing Equilibrium Solver:**
+    *   Verify that `get_Im_vectorized(bank, A_array)` inside notebook 4 incorporates the `bank.CAR` constraint dynamically.
+    *   Ensure that the global market-clearing equilibrium ROE $\beta^*$ is solved respecting the 10% capital adequacy constraint.
+2.  **Interactive Capital Market Dashboard:**
+    *   Verify and ensure that the interactive widget slider for `alpha` (monitoring effectiveness) and capital supply recalculates and Clears the Market under the 10% CAR floor, updating the demand-clearing diagram and contract envelopes accordingly.
+3.  **Visual Consistency:**
+    *   Ensure that all plots and sliders carry over the exact same parameter syncs ($f=30$, baseline beta=1.2) established in notebook 2.
