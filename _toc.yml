@@ -1,9 +1,12 @@
 format: jb-book
 root: README.md  
 parts:
-  - caption: Social Finance  # Optional: Section title in the sidebar
+  - caption: Social Finance
     chapters:
     - file: notebooks/2-socfin_m.ipynb
+    - file: notebooks/4-selfish-equity.ipynb
+    - file: notebooks/5-endogenous-NK.ipynb
+    - file: notebooks/6-Pareto-NK.ipynb
   - caption: Summary
     chapters:
     - file: notebooks/1-results.md

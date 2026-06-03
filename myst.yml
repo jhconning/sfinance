@@ -20,10 +20,16 @@ project:
     - "notebooks/drafts/**"
     - "!README.md"
     - "!notebooks/2-socfin_m.ipynb"
+    - "!notebooks/4-selfish-equity.ipynb"
+    - "!notebooks/5-endogenous-NK.ipynb"
+    - "!notebooks/6-Pareto-NK.ipynb"
     - "!notebooks/1-results.md"
   toc:
     - file: README.md
     - file: notebooks/2-socfin_m.ipynb
+    - file: notebooks/4-selfish-equity.ipynb
+    - file: notebooks/5-endogenous-NK.ipynb
+    - file: notebooks/6-Pareto-NK.ipynb
     - file: notebooks/1-results.md
 
 site:
